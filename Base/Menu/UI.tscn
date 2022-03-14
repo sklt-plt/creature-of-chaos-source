@@ -1,0 +1,318 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Menu/UI.gd" type="Script" id=1]
+[ext_resource path="res://Base/Menu/default_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Base/Menu/Options.tscn" type="PackedScene" id=3]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Control" parent="MainMenu"]
+anchor_left = 0.3
+anchor_top = 0.128
+anchor_right = 0.7
+anchor_bottom = 0.37
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="MainMenu/Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.486275, 0.486275, 0.486275, 0.384314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="Control" parent="MainMenu"]
+anchor_left = 0.4
+anchor_top = 0.435
+anchor_right = 0.6
+anchor_bottom = 0.852
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="MainMenu/Selection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.486275, 0.486275, 0.486275, 0.384314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="MainMenu/Selection"]
+anchor_left = 0.358
+anchor_top = 0.164
+anchor_right = 0.642
+anchor_bottom = 0.287
+margin_top = -0.0628815
+margin_right = 1.52588e-05
+margin_bottom = -0.0624313
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="MainMenu/Selection"]
+anchor_left = 0.358
+anchor_top = 0.341
+anchor_right = 0.642
+anchor_bottom = 0.464
+margin_top = -0.153976
+margin_right = 1.52588e-05
+margin_bottom = -0.153931
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ManualButton" type="Button" parent="MainMenu/Selection"]
+anchor_left = 0.358
+anchor_top = 0.518
+anchor_right = 0.642
+anchor_bottom = 0.641
+margin_top = 0.0849915
+margin_right = 1.52588e-05
+margin_bottom = 0.085022
+grow_horizontal = 2
+grow_vertical = 2
+text = "Help & Story"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuitButton" type="Button" parent="MainMenu/Selection"]
+anchor_left = 0.358
+anchor_top = 0.698
+anchor_right = 0.642
+anchor_bottom = 0.821
+margin_top = 0.129669
+margin_right = 1.52588e-05
+margin_bottom = 0.129639
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+anchor_left = 0.889
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.119873
+margin_top = -0.400085
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/margin_right = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MainMenu/MarginContainer"]
+margin_right = 197.0
+margin_bottom = 52.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 11
+size_flags_vertical = 11
+text = "Give Feedback"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LevelSelect" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LSBackButton" type="Button" parent="LevelSelect"]
+anchor_left = 0.059375
+anchor_top = 0.832
+anchor_right = 0.152
+anchor_bottom = 0.924038
+margin_top = -0.280029
+margin_right = 0.159973
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ep1Button" type="Button" parent="LevelSelect"]
+anchor_left = 0.3
+anchor_top = 0.435
+anchor_right = 0.38
+anchor_bottom = 0.545
+text = "Episode1"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ep2Button" type="Button" parent="LevelSelect"]
+anchor_left = 0.4716
+anchor_top = 0.435
+anchor_right = 0.5516
+anchor_bottom = 0.545
+disabled = true
+text = "Episode2"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ep3Button" type="Button" parent="LevelSelect"]
+anchor_left = 0.635342
+anchor_top = 0.435
+anchor_right = 0.715342
+anchor_bottom = 0.545
+disabled = true
+text = "Episode3"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LevelSelectEp1" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LSE1BackButton" type="Button" parent="LevelSelectEp1"]
+anchor_left = 0.059375
+anchor_top = 0.832
+anchor_right = 0.152
+anchor_bottom = 0.924038
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayEp1" type="Button" parent="LevelSelectEp1"]
+anchor_left = 0.4
+anchor_top = 0.540178
+anchor_right = 0.6
+anchor_bottom = 0.62287
+text = "Play Campaign"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PlayEp1Endless" type="Button" parent="LevelSelectEp1"]
+anchor_left = 0.4
+anchor_top = 0.643768
+anchor_right = 0.6
+anchor_bottom = 0.72646
+text = "Play Arcade"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PlayEp1Custom" type="Button" parent="LevelSelectEp1"]
+anchor_left = 0.4
+anchor_top = 0.746653
+anchor_right = 0.6
+anchor_bottom = 0.829345
+text = "Play Custom"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Options" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Ep1ClearNotif" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Ep1ClearNotif"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.423529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Ep1ClearNotif"]
+anchor_left = 0.3
+anchor_top = 0.370192
+anchor_right = 0.7
+anchor_bottom = 0.591346
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Ep1ClearNotif/Panel"]
+anchor_left = 0.157552
+anchor_top = 0.134783
+anchor_right = 0.838542
+anchor_bottom = 0.847826
+text = "Congratulations!
+
+You've unlocked
+Arcade and Custom Mode for Episode 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ep1ClearOkButton" type="Button" parent="Ep1ClearNotif"]
+anchor_left = 0.471
+anchor_top = 0.643885
+anchor_right = 0.528
+anchor_bottom = 0.699885
+text = "OK!"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="button_up" from="MainMenu/Selection/StartButton" to="." method="_on_ContinueButton_button_up"]
+[connection signal="button_up" from="MainMenu/Selection/OptionsButton" to="." method="_on_OptionsButton_button_up"]
+[connection signal="button_up" from="MainMenu/Selection/ManualButton" to="." method="_on_ManualButton_button_up"]
+[connection signal="button_up" from="MainMenu/Selection/QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="button_up" from="MainMenu/MarginContainer/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="LevelSelect/LSBackButton" to="." method="_on_LSBackButton_button_up"]
+[connection signal="button_up" from="LevelSelect/Ep1Button" to="." method="_on_Ep1Button_button_up"]
+[connection signal="button_up" from="LevelSelectEp1/LSE1BackButton" to="." method="_on_LSE1BackButton_button_up"]
+[connection signal="button_up" from="LevelSelectEp1/PlayEp1" to="." method="_on_PlayEp1_button_up"]
+[connection signal="button_up" from="LevelSelectEp1/PlayEp1Endless" to="." method="_on_PlayEp1Endless_button_up"]
+[connection signal="button_up" from="LevelSelectEp1/PlayEp1Custom" to="." method="_on_PlayEp1Custom_button_up"]
+[connection signal="exited" from="Options" to="." method="_on_Options_exited"]
+[connection signal="button_up" from="Ep1ClearNotif/Ep1ClearOkButton" to="." method="_on_Ep1ClearOkButton_button_up"]

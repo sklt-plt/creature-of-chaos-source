@@ -1,0 +1,14 @@
+extends Node
+class_name GeneratorConstants
+
+const TILE_OBSTACLE_ID = 0
+const TILE_RESERVED_SUB_PATH_ID = 1
+const TILE_ITEM_ID = 2
+const TILE_RESERVED_PATH_ID = 3
+const TILE_RESERVED_ACCESSIBLE_ID = 4
+const TILE_NORTH_EXIT_ID = 5
+const TILE_SOUTH_EXIT_ID = 6
+const TILE_WEST_EXIT_ID = 7
+const TILE_EAST_EXIT_ID = 8
+const TILE_UP_EXIT_ID = 9
+const TILE_DOWN_EXIT_ID = 10

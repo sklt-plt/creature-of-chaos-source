@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Base/Effects/HitParticles.gd" type="Script" id=2]
+
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.955078, 0.955078, 0.955078, 1, 0.992157, 0.992157, 0.992157, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 16
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.732955 ), 0.0, 0.881818, 0, 0, Vector2( 1, 0.996591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+width = 512
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+direction = Vector3( 0, 0, 1 )
+spread = 55.15
+gravity = Vector3( 0, -0.406, 0 )
+initial_velocity = 0.32
+angular_velocity = 75.3
+angular_velocity_random = 0.19
+damping = 0.11
+angle_random = 1.0
+scale = 0.19
+scale_random = 0.4
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_billboard_mode = 3
+params_billboard_keep_scale = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[node name="HitParticlesFoliage" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.356975 )
+cast_shadow = 0
+amount = 4
+lifetime = 2.18
+explosiveness = 1.0
+randomness = 0.3
+visibility_aabb = AABB( -3.78504, -4, -4, 7.57009, 8, 8 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.18
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

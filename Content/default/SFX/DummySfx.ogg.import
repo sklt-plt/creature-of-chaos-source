@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DummySfx.ogg-ccce8006cc1b0ce1dc9a2864feb90bc9.oggstr"
+
+[deps]
+
+source_file="res://Content/default/SFX/DummySfx.ogg"
+dest_files=[ "res://.import/DummySfx.ogg-ccce8006cc1b0ce1dc9a2864feb90bc9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

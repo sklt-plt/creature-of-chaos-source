@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/Pickups/ResourcePickup.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.488, 0.225, 0.479 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.686275, 0.133333, 0.133333, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.037, 0.062, 0.098 )
+
+[node name="HealthPickup" instance=ExtResource( 1 )]
+contents = {
+"r_health": 50
+}
+
+[node name="CSGBox2" type="MeshInstance" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14303, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CSGBox2" type="MeshInstance" parent="CSGBox2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0997386, 0.109396, 0.114191 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CSGBox3" type="MeshInstance" parent="CSGBox2" index="1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0997386, 0.109396, 0.114191 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CSGBox6" type="MeshInstance" parent="CSGBox2" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140519, 0.109396, -0.0786017 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CSGBox7" type="MeshInstance" parent="CSGBox2" index="3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0140519, 0.109396, -0.0786017 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CSGBox4" type="MeshInstance" parent="CSGBox2" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0983212, 0.109396, 0.11529 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CSGBox5" type="MeshInstance" parent="CSGBox2" index="5"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0983212, 0.109396, 0.11529 )
+mesh = SubResource( 3 )
+material/0 = null

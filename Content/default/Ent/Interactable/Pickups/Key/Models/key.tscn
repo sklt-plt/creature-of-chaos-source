@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.186, 0.278, 0.153 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.102, 0.604, 0.069 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.355, 0.054, 0.032 )
+
+[node name="key" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294419, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205536, -0.200534, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134608, -0.0175189, 0 )
+mesh = SubResource( 3 )
+material/0 = null

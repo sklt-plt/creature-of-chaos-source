@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/Pickups/ResourcePickup.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.94902, 0.188235, 0.188235, 1 )
+
+[node name="ammo_shotgun_pickup" instance=ExtResource( 3 )]
+contents = {
+"r_shotgun_ammo": 3
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250464, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

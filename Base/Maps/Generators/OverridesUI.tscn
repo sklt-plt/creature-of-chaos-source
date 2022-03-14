@@ -1,0 +1,645 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Base/Maps/Generators/OverridesUI.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="OverridesUI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.337255, 0.337255, 0.337255, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SC" type="ScrollContainer" parent="."]
+anchor_left = 0.204
+anchor_top = 0.062
+anchor_right = 0.796
+anchor_bottom = 0.797
+margin_left = -0.680023
+margin_top = -0.480003
+margin_right = 0.679932
+margin_bottom = 0.119995
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GC" type="GridContainer" parent="SC"]
+margin_right = 432.0
+margin_bottom = 623.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_constants/vseparation = 15
+custom_constants/hseparation = 15
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="SeedL" type="Label" parent="SC/GC"]
+margin_right = 171.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Base seed"
+valign = 1
+
+[node name="SeedLE" type="LineEdit" parent="SC/GC"]
+margin_left = 186.0
+margin_right = 394.0
+margin_bottom = 24.0
+size_flags_horizontal = 9
+align = 1
+max_length = 20
+placeholder_text = "--Random--"
+
+[node name="DummyControl2" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_right = 432.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLengthL" type="Label" parent="SC/GC"]
+margin_top = 39.0
+margin_right = 171.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Main Path Length"
+valign = 1
+
+[node name="MainLengthSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 39.0
+margin_right = 394.0
+margin_bottom = 63.0
+size_flags_horizontal = 9
+min_value = 2.0
+max_value = 50.0
+value = 6.0
+allow_greater = true
+align = 1
+
+[node name="DummyControl4" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 39.0
+margin_right = 432.0
+margin_bottom = 63.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubPathNumL" type="Label" parent="SC/GC"]
+margin_top = 78.0
+margin_right = 171.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Num of side paths"
+valign = 1
+
+[node name="SubPathNumSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 78.0
+margin_right = 394.0
+margin_bottom = 102.0
+size_flags_horizontal = 9
+max_value = 50.0
+value = 3.0
+allow_greater = true
+align = 1
+
+[node name="DummyControl11" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 78.0
+margin_right = 432.0
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubLengthL" type="Label" parent="SC/GC"]
+margin_top = 117.0
+margin_right = 171.0
+margin_bottom = 141.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Side Paths Max Length"
+valign = 1
+
+[node name="SubLengthSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 117.0
+margin_right = 394.0
+margin_bottom = 141.0
+size_flags_horizontal = 9
+max_value = 50.0
+value = 3.0
+align = 1
+
+[node name="DummyControl8" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 117.0
+margin_right = 432.0
+margin_bottom = 141.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinRoomSizeL" type="Label" parent="SC/GC"]
+margin_top = 156.0
+margin_right = 171.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Room Size"
+valign = 1
+
+[node name="RoomSizeBarsGC" type="GridContainer" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 156.0
+margin_right = 394.0
+margin_bottom = 180.0
+columns = 4
+
+[node name="FromL" type="Label" parent="SC/GC/RoomSizeBarsGC"]
+margin_top = 5.0
+margin_right = 33.0
+margin_bottom = 19.0
+text = "From"
+
+[node name="MinSB" type="SpinBox" parent="SC/GC/RoomSizeBarsGC"]
+margin_left = 37.0
+margin_right = 111.0
+margin_bottom = 24.0
+min_value = 4.0
+value = 10.0
+
+[node name="ToL" type="Label" parent="SC/GC/RoomSizeBarsGC"]
+margin_left = 115.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 19.0
+text = "To"
+
+[node name="MaxSB" type="SpinBox" parent="SC/GC/RoomSizeBarsGC"]
+margin_left = 134.0
+margin_right = 208.0
+margin_bottom = 24.0
+min_value = 4.0
+value = 30.0
+
+[node name="DummyControl12" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 156.0
+margin_right = 432.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoomHeightL2" type="Label" parent="SC/GC"]
+margin_top = 195.0
+margin_right = 171.0
+margin_bottom = 219.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Room Height"
+valign = 1
+
+[node name="RoomHeightGC" type="GridContainer" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 195.0
+margin_right = 394.0
+margin_bottom = 219.0
+columns = 4
+
+[node name="FromL" type="Label" parent="SC/GC/RoomHeightGC"]
+margin_top = 5.0
+margin_right = 33.0
+margin_bottom = 19.0
+text = "From"
+
+[node name="MinSB" type="SpinBox" parent="SC/GC/RoomHeightGC"]
+margin_left = 37.0
+margin_right = 111.0
+margin_bottom = 24.0
+min_value = 2.0
+max_value = 75.0
+value = 3.0
+
+[node name="ToL" type="Label" parent="SC/GC/RoomHeightGC"]
+margin_left = 115.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 19.0
+text = "To"
+
+[node name="MaxSB" type="SpinBox" parent="SC/GC/RoomHeightGC"]
+margin_left = 134.0
+margin_right = 208.0
+margin_bottom = 24.0
+min_value = 2.0
+max_value = 75.0
+value = 5.0
+
+[node name="DummyControl13" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 195.0
+margin_right = 432.0
+margin_bottom = 219.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvgRoomDifficultyL" type="Label" parent="SC/GC"]
+margin_top = 234.0
+margin_right = 171.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Room Enemy Budget"
+valign = 1
+
+[node name="AvgRoomDifficultySB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 234.0
+margin_right = 394.0
+margin_bottom = 258.0
+size_flags_horizontal = 9
+max_value = 50.0
+value = 10.0
+allow_greater = true
+align = 1
+
+[node name="DummyControl16" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 234.0
+margin_right = 432.0
+margin_bottom = 258.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvgDifficultyDeviationL" type="Label" parent="SC/GC"]
+margin_top = 273.0
+margin_right = 171.0
+margin_bottom = 297.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Enemy Budget Deviation"
+valign = 1
+
+[node name="AvgDifficultyDeviationSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 273.0
+margin_right = 394.0
+margin_bottom = 297.0
+size_flags_horizontal = 9
+max_value = 50.0
+value = 5.0
+align = 1
+
+[node name="DummyControl17" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 273.0
+margin_right = 432.0
+margin_bottom = 297.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxRandomWalksL" type="Label" parent="SC/GC"]
+margin_top = 312.0
+margin_right = 171.0
+margin_bottom = 336.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Maze Rooms Iterations"
+valign = 1
+
+[node name="MaxRandomWalksSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 312.0
+margin_right = 394.0
+margin_bottom = 336.0
+size_flags_horizontal = 9
+value = 15.0
+allow_greater = true
+align = 1
+
+[node name="DummyControl18" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 312.0
+margin_right = 432.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RandomWalksWidthsL" type="Label" parent="SC/GC"]
+margin_top = 351.0
+margin_right = 171.0
+margin_bottom = 371.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Maze Paths Widths"
+valign = 1
+
+[node name="RandomWalksWidthsO" type="OptionButton" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 351.0
+margin_right = 394.0
+margin_bottom = 371.0
+size_flags_horizontal = 9
+size_flags_vertical = 0
+text = "Default"
+align = 1
+items = [ "Default", null, false, 0, null, "Small", null, false, 1, null, "Average", null, false, 2, null, "Large", null, false, 3, null, "Random", null, false, 4, null ]
+selected = 0
+
+[node name="DummyControl6" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 351.0
+margin_right = 432.0
+margin_bottom = 371.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArenaObstacleNumL" type="Label" parent="SC/GC"]
+margin_top = 386.0
+margin_right = 171.0
+margin_bottom = 410.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Arena Rooms Obstacles"
+valign = 1
+
+[node name="ArenaObstacleNumSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 386.0
+margin_right = 394.0
+margin_bottom = 410.0
+size_flags_horizontal = 9
+step = 4.0
+value = 4.0
+rounded = true
+allow_greater = true
+align = 1
+
+[node name="DummyControl19" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 386.0
+margin_right = 432.0
+margin_bottom = 410.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArenaObstacleL" type="Label" parent="SC/GC"]
+margin_top = 425.0
+margin_right = 171.0
+margin_bottom = 449.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Arena Obstacle Size"
+valign = 1
+
+[node name="ArenaObstacleGC" type="GridContainer" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 425.0
+margin_right = 394.0
+margin_bottom = 449.0
+columns = 4
+
+[node name="FromL" type="Label" parent="SC/GC/ArenaObstacleGC"]
+margin_top = 5.0
+margin_right = 33.0
+margin_bottom = 19.0
+text = "From"
+
+[node name="MinSB" type="SpinBox" parent="SC/GC/ArenaObstacleGC"]
+margin_left = 37.0
+margin_right = 111.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 50.0
+value = 1.0
+allow_greater = true
+
+[node name="ToL" type="Label" parent="SC/GC/ArenaObstacleGC"]
+margin_left = 115.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 19.0
+text = "To"
+
+[node name="MaxSB" type="SpinBox" parent="SC/GC/ArenaObstacleGC"]
+margin_left = 134.0
+margin_right = 208.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 50.0
+value = 3.0
+allow_greater = true
+
+[node name="DummyControl14" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 425.0
+margin_right = 432.0
+margin_bottom = 449.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArenaObstacleMarginL" type="Label" parent="SC/GC"]
+margin_top = 464.0
+margin_right = 171.0
+margin_bottom = 488.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Arena Obstacle Margin"
+valign = 1
+
+[node name="ArenaObstacleMarginSB" type="SpinBox" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 464.0
+margin_right = 394.0
+margin_bottom = 488.0
+size_flags_horizontal = 9
+min_value = 2.0
+max_value = 10.0
+value = 2.0
+allow_greater = true
+align = 1
+
+[node name="DummyControl20" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 464.0
+margin_right = 432.0
+margin_bottom = 488.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CeilingsL" type="Label" parent="SC/GC"]
+margin_top = 503.0
+margin_right = 171.0
+margin_bottom = 527.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Make Room Ceilings"
+valign = 1
+
+[node name="CeilingsB" type="CheckBox" parent="SC/GC"]
+margin_left = 278.0
+margin_top = 503.0
+margin_right = 302.0
+margin_bottom = 527.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+align = 1
+
+[node name="DummyControl3" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 503.0
+margin_right = 432.0
+margin_bottom = 527.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UseSpecialRoomsL" type="Label" parent="SC/GC"]
+margin_top = 542.0
+margin_right = 171.0
+margin_bottom = 566.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Use special rooms"
+valign = 1
+
+[node name="UseSpecialRoomsB" type="CheckBox" parent="SC/GC"]
+margin_left = 278.0
+margin_top = 542.0
+margin_right = 302.0
+margin_bottom = 566.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+pressed = true
+align = 1
+
+[node name="DummyControl23" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 542.0
+margin_right = 432.0
+margin_bottom = 566.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpecialsOnMainL" type="Label" parent="SC/GC"]
+margin_top = 581.0
+margin_right = 171.0
+margin_bottom = 605.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Specials on main path only"
+valign = 1
+
+[node name="SpecialsOnMainB" type="CheckBox" parent="SC/GC"]
+margin_left = 278.0
+margin_top = 581.0
+margin_right = 302.0
+margin_bottom = 605.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+pressed = true
+align = 1
+
+[node name="DummyControl24" type="Control" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 581.0
+margin_right = 432.0
+margin_bottom = 605.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DummyControl10" type="Control" parent="SC/GC"]
+margin_top = 620.0
+margin_right = 171.0
+margin_bottom = 623.0
+
+[node name="VSeparator" type="VSeparator" parent="SC/GC"]
+margin_left = 186.0
+margin_top = 620.0
+margin_right = 394.0
+margin_bottom = 623.0
+size_flags_horizontal = 11
+custom_constants/separation = 170
+custom_styles/separator = SubResource( 1 )
+
+[node name="VSeparator2" type="VSeparator" parent="SC/GC"]
+margin_left = 409.0
+margin_top = 620.0
+margin_right = 432.0
+margin_bottom = 623.0
+size_flags_horizontal = 11
+custom_constants/separation = 23
+custom_styles/separator = SubResource( 1 )
+
+[node name="GC" type="GridContainer" parent="."]
+anchor_left = 0.409
+anchor_top = 0.797
+anchor_right = 0.595
+anchor_bottom = 0.863
+margin_left = 0.719971
+margin_top = 0.119934
+margin_right = -0.400024
+margin_bottom = 0.47998
+custom_constants/hseparation = 10
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="GC"]
+margin_right = 173.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="PlayButton" type="Button" parent="GC"]
+margin_left = 183.0
+margin_right = 356.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Play"
+
+[connection signal="value_changed" from="SC/GC/RoomSizeBarsGC/MinSB" to="." method="_on_MinSB_value_changed"]
+[connection signal="value_changed" from="SC/GC/RoomSizeBarsGC/MaxSB" to="." method="_on_MaxSB_value_changed"]
+[connection signal="value_changed" from="SC/GC/RoomHeightGC/MinSB" to="." method="_on_MinSB_value_changed"]
+[connection signal="value_changed" from="SC/GC/RoomHeightGC/MaxSB" to="." method="_on_MaxSB_value_changed"]
+[connection signal="value_changed" from="SC/GC/AvgRoomDifficultySB" to="." method="_on_AvgRoomDifficultySB_value_changed"]
+[connection signal="value_changed" from="SC/GC/ArenaObstacleGC/MinSB" to="." method="_on_MinSB_value_changed"]
+[connection signal="value_changed" from="SC/GC/ArenaObstacleGC/MaxSB" to="." method="_on_MaxSB_value_changed"]
+[connection signal="button_up" from="GC/ExitButton" to="." method="_on_ExitButton_button_up"]
+[connection signal="button_up" from="GC/PlayButton" to="." method="_on_PlayButton_button_up"]

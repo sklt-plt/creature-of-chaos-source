@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Content/default/Maps/GeneratedMap.tscn" type="PackedScene" id=56]
+
+[node name="GeneratedMap" instance=ExtResource( 56 )]
+
+[node name="MapGenerator" parent="." index="0"]
+gen_seed = "2119638126"
+main_path_length = 8
+sub_path_max_length = 1
+num_of_sub_paths = 5
+min_room_size = 20
+max_room_size = 24
+_average_room_difficulty = 7.141
+_average_difficulty_variation = 1.019
+_max_random_walks = 20
+_random_walks_widths = 2
+_arena_obstacle_per_quadrant = 4
+_arena_obstacle_outline_thickness = 3
+_arena_obstacle_min_size = 3
+_arena_obstacle_max_size = 8
+_prefab_rooms = [  ]
+
+[node name="player_starting_equipment" parent="." index="1"]
+starting_resources = {
+"e_double_barrel_level": 1,
+"r_health": 30
+}

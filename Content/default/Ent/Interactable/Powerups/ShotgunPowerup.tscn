@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/Powerups/Rise.tres" type="Animation" id=1]
+[ext_resource path="res://Base/Ent/Interactable/Powerups/ShotgunPowerup.gd" type="Script" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.5
+height = 1.79393
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.32, 0.341, 2.753 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.572549, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.32, 0.341, 0.784 )
+
+[sub_resource type="SpatialMaterial" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+
+[node name="ShotgunPowerup" type="Spatial"]
+script = ExtResource( 3 )
+prompt_text_suffix = "to pickup"
+fade_in_effect = false
+
+[node name="ManualTrigger" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ManualTrigger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.512417, 0 )
+shape = SubResource( 1 )
+
+[node name="Sphere" type="Spatial" parent="."]
+transform = Transform( 0.670127, 0, 0, 0, 0.670127, 0, 0, 0, 0.670127, 0, 0, -0.289003 )
+
+[node name="Model" type="MeshInstance" parent="Sphere"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240808, 0.490195, 0.563376 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Model2" type="MeshInstance" parent="Sphere"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00240808, -0.0706867, -0.214366 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Model3" type="MeshInstance" parent="Sphere"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240808, 0.153171, 0.993708 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Rise = ExtResource( 1 )
+
+[connection signal="body_entered" from="ManualTrigger" to="." method="_on_Trigger_body_entered"]
+[connection signal="body_exited" from="ManualTrigger" to="." method="_on_Trigger_body_exited"]

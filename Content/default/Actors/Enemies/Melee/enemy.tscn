@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Base/Effects/SurfaceType.gd" type="Script" id=1]
+[ext_resource path="res://Content/default/Actors/Enemies/Melee/DummyMelee.gd" type="Script" id=2]
+[ext_resource path="res://Base/Actors/Enemies/KinematicEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Content/default/Actors/Enemies/Model/DummyEnemy.glb" type="PackedScene" id=4]
+[ext_resource path="res://Content/default/SFX/DummySfx.ogg" type="AudioStream" id=5]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.67536
+height = 3.21587
+
+[sub_resource type="CapsuleMesh" id=2]
+radial_segments = 4
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.866667, 0.0196078, 0.0196078, 1 )
+
+[node name="DummyMelee" instance=ExtResource( 3 )]
+transform = Transform( 0.930488, 0, 0, 0, 0.930488, 0, 0, 0, 0.930488, 0, 0, 0 )
+collision_layer = 2147483652
+collision_mask = 7
+script = ExtResource( 2 )
+movement_speed = 6.0
+allow_chasing = true
+uses_melee_attack = true
+audio_callouts = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ]
+audio_death = ExtResource( 5 )
+audio_attack = ExtResource( 5 )
+kill_immediate_resources = {
+"r_time_freeze": 1.0,
+"s_kills": 1,
+"s_leveled_score": 150
+}
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59734, -0.939514 )
+shape = SubResource( 1 )
+
+[node name="Model" parent="." index="6" instance=ExtResource( 4 )]
+transform = Transform( 1.0747, 0, 0, 0, 1.0747, 0, 0, 0, 1.0747, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Model" index="2"]
+transform = Transform( 1.24097, 0, 0, 0, -4.63958e-08, -1.03941, 0, 1.06141, -4.5434e-08, 0, 1.68975, -0.851882 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="SurfaceHitEffectType" type="Node" parent="." index="8"]
+script = ExtResource( 1 )
+effect = 1
+
+[editable path="Model"]

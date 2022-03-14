@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Base/Actors/Enemies/KinematicEnemy.gd" type="Script" id=1]
+
+[node name="KinematicEnemy" type="KinematicBody" groups=["enemies"]]
+script = ExtResource( 1 )
+health = 25.0
+combat_movement = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+
+[node name="MissileSpawnCords" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75258, -3.9512 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+unit_db = 1.0
+unit_size = 6.0
+out_of_range_mode = 1
+bus = "Effects"
+
+[node name="WanderTimer" type="Timer" parent="."]
+
+[node name="RangedAttackFrequency" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="RangedAttackTelegraph" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioCalloutsTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="WanderTimer" to="." method="_on_WanderTimer_timeout"]
+[connection signal="timeout" from="RangedAttackFrequency" to="." method="_on_RangedAttackFrequency_timeout"]
+[connection signal="timeout" from="RangedAttackTelegraph" to="." method="_on_RangedAttackTelegraph_timeout"]
+[connection signal="timeout" from="AudioCalloutsTimer" to="." method="_on_AudioCalloutsTimer_timeout"]

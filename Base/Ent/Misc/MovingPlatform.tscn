@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Ent/Misc/MovingPlatform.gd" type="Script" id=1]
+
+
+
+
+
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0149113, 0.000120528, -0.0121441, 0, 0, 0, 0, 0, 0, -0.0149113, 0.000120528, -0.0121441, 0, 0, 0, 0, 0, 0, -0.0149113, 0.000120528, -0.0121441, 0, 0, 0, 0, 0, 0, 4.03848, -0.0276661, -0.127552, 0, 0, 0, 0, 0, 0, 3.85022, -0.025713, -2.6164, 0, 0, 0, 0, 0, 0, 0.135605, 0.000165939, -2.41159, 0, 0, 0, 0, 0, 0, -0.0149113, 0.000120528, -0.0121441 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="MovingPlatform" type="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0438217, 0 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="."]
+transform = Transform( -0.0423576, -0.00297686, 0.999098, 0.000571922, 0.999995, 0.00300378, -0.999102, 0.000698638, -0.0423558, -0.0149113, 0.000120528, -0.0121441 )
+
+[node name="Platform" type="StaticBody" parent="PathFollow"]
+transform = Transform( 1, 0, 0, 0, 1, 1.74623e-010, 0, -1.67347e-010, 1, 1.76951e-008, -0.952831, -4.47035e-008 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PathFollow/Platform"]
+transform = Transform( 1, -2.66454e-014, 2.98023e-008, -1.15463e-014, 1, 2.13163e-014, -2.98023e-008, 1.42109e-014, 1, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="FloorTrigger" type="Area" parent="PathFollow/Platform"]
+transform = Transform( 1, 0, 5.96046e-008, -5.82077e-011, 1, 1.54614e-010, -5.96046e-008, -1.45519e-010, 1, 9.31323e-009, 0.238595, -1.86265e-009 )
+
+[node name="CollisionShapeCpy" type="CollisionShape" parent="PathFollow/Platform/FloorTrigger"]
+transform = Transform( 1, -1.95399e-014, 0, -8.52651e-014, 1, -1.10134e-013, 0, 8.88178e-015, 1, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="PathFollow/Platform/FloorTrigger" to="." method="_on_FloorTrigger_body_entered"]
+[connection signal="body_exited" from="PathFollow/Platform/FloorTrigger" to="." method="_on_FloorTrigger_body_exited"]

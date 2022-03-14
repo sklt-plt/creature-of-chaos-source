@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Base/Actors/Player/Guns/BaseGun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Content/default/Actors/Player/Guns/Revolver.gd" type="Script" id=2]
+[ext_resource path="res://Content/default/Actors/Player/Guns/DummyModels/Revolver/dummyRevolver.glb" type="PackedScene" id=3]
+[ext_resource path="res://Content/default/SFX/DummySfx.ogg" type="AudioStream" id=4]
+
+[node name="Revolver" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+instant_reload = true
+automatic_reload = true
+automatic = true
+ammo_type = "r_pistol_ammo"
+anims_idle = [ "idle", "" ]
+anims_fire = [ "revolver_fire_a", "" ]
+anims_alt_prep = [ "revolver_fire_b1", "" ]
+anims_alt_fire = [ "revolver_fire_b2", "" ]
+audio_fire = ExtResource( 4 )
+
+[node name="Model" parent="." index="3" instance=ExtResource( 3 )]
+
+[editable path="MuzzleFlash"]

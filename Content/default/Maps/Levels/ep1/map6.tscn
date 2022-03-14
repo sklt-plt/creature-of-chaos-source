@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Maps/FallCatcher.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Base/Audio/MusicOverride.gd" type="Script" id=6]
+[ext_resource path="res://Content/default/Maps/GeneratedMap.tscn" type="PackedScene" id=56]
+
+[node name="GeneratedMap" instance=ExtResource( 56 )]
+
+[node name="FallCatcher" parent="." index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0152, -8.54464, 163.595 )
+
+[node name="MapGenerator" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00999986, 0 )
+int_objects = {
+"explosive_barrel": {
+"path": "/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.tscn"
+},
+"key": {
+"path": "/Ent/Interactable/Pickups/Key/Key.tscn"
+},
+"level_gate": {
+"path": "/Ent/Interactable/LevelExit/FakeExit.tscn"
+},
+"locked_door": {
+"path": "/Ent/Interactable/LockedDoor/LockedDoor.tscn"
+},
+"treasure_chest": {
+"path": "/Ent/Interactable/TreasureChest/TreasureChest.tscn"
+}
+}
+stat_objects = {
+"level_entrance": {
+"path": "/Ent/Static/LevelEntrance/LevelEntrance.tscn"
+}
+}
+gen_seed = "581567169"
+num_of_sub_paths = 0
+min_room_size = 35
+max_room_size = 39
+monster_paths_and_costs = [ {
+"path": "/Actors/Enemies/Boomerangs/enemy.tscn",
+"player_resource_costs": {
+"r_armor": 4,
+"r_health": 4,
+"r_pistol_ammo": 5,
+"r_shotgun_ammo": 5
+},
+"spawn_cost": 1,
+"spawn_max_group": 3
+} ]
+_average_room_difficulty = 3
+_average_difficulty_variation = 0
+pickups = {
+"r_armor": [ {
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupL.tscn"
+}, {
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupM.tscn"
+}, {
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupS.tscn"
+} ],
+"r_health": [ {
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupL.tscn"
+}, {
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupM.tscn"
+}, {
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupS.tscn"
+} ],
+"r_pistol_ammo": [ {
+"path": "/Ent/Interactable/Pickups/Ammo/AmmoPistolPickup.tscn"
+} ],
+"r_shotgun_ammo": [ {
+"path": "/Ent/Interactable/Pickups/Ammo/AmmoShotgunPickup.tscn"
+} ]
+}
+_max_random_walks = 4
+_random_walks_widths = 3
+_arena_obstacle_per_quadrant = 4
+_prefab_rooms = [  ]
+
+[node name="player_starting_equipment" parent="." index="2"]
+starting_resources = {
+"r_health": 100
+}
+
+[node name="MusicOverride" type="Node" parent="." index="4"]
+script = ExtResource( 6 )

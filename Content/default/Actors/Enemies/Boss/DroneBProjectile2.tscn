@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Base/Ent/Hazards/SpawnerProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/enemy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.474909
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="SpawnerProjectile" instance=ExtResource( 1 )]
+collision_layer = 2147483664
+collision_mask = 3
+speed = 50.0
+spawn = ExtResource( 2 )
+
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Model" index="0"]
+mesh = SubResource( 2 )
+material/0 = null

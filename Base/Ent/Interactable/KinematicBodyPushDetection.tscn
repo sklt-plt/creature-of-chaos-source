@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/KinematicBodyPushDetection.gd" type="Script" id=1]
+
+[sub_resource type="CylinderShape" id=7]
+radius = 7.72443
+height = 15.4116
+
+[node name="KinematicBodyPushDetection" type="Area"]
+transform = Transform( 0.0714163, 0, 0, 0, 0.0714163, 0, 0, 0, 0.0714163, 0, -0.350224, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.74601, 0 )
+shape = SubResource( 7 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

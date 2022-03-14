@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoPistolPickup.tscn" type="PackedScene" id=1]
+
+[node name="AmmoPistolPickup" instance=ExtResource( 1 )]
+respawns = true
+
+[node name="RespawnTimer" parent="." index="0"]
+wait_time = 60.0

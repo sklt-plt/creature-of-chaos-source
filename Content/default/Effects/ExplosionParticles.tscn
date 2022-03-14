@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.861607, 1 )
+colors = PoolColorArray( 1, 0.0507813, 0.0507813, 1, 0.647059, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+spread = 89.31
+gravity = Vector3( 0, 0, -9.8 )
+initial_velocity = 38.17
+initial_velocity_random = 0.49
+damping = 22.9
+damping_random = 0.59
+color_ramp = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_vertex_lighting = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+params_billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 5 )
+radial_segments = 4
+rings = 1
+
+[node name="Particles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0 )
+amount = 14
+one_shot = true
+speed_scale = 1.44
+explosiveness = 1.0
+draw_order = 2
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
+

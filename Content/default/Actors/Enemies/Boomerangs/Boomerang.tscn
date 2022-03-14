@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Base/Ent/Hazards/Boomerang.gd" type="Script" id=1]
+[ext_resource path="res://Content/default/SFX/DummySfx.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/boomerang_boomerang_spin.tres" type="Animation" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.274409
+height = 0.14479
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.048, 0.053, 0.44 )
+
+[node name="Boomerang" type="KinematicBody"]
+collision_layer = 36
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Model" type="Spatial" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+
+[node name="boomerang2" type="Spatial" parent="Model"]
+transform = Transform( 17.3647, 74.7692, -64.094, 98.4808, -13.1837, 11.3014, 2.98023e-06, -65.0827, -75.9226, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Model/boomerang2"]
+transform = Transform( 1, -1.87251e-07, 4.15784e-08, -7.4601e-08, 0.84371, 0.536799, -3.48721e-08, -0.536799, 0.84371, -5.57368e-08, -0.111559, -0.185352 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Model/boomerang2"]
+transform = Transform( 1, -8.14097e-09, 1.71322e-08, -1.0361e-07, 0.928207, -0.372064, -6.87129e-08, 0.372064, 0.928207, 3.99786e-09, -0.0762209, 0.182796 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+anims/boomerang|boomerang_spin = ExtResource( 3 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_size = 4.0
+max_db = -2.0
+autoplay = true
+max_distance = 250.0
+out_of_range_mode = 1
+bus = "Effects"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

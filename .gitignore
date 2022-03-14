@@ -1,0 +1,18 @@
+# Created by https://www.gitignore.io/api/godot
+# Edit at https://www.gitignore.io/?templates=godot
+
+### Godot ###
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+# End of https://www.gitignore.io/api/godot
+
+# Decouple custom content pack from this
+Content/custom
+

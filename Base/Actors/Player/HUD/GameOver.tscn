@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Base/Actors/Player/HUD/GameOver.gd" type="Script" id=1]
+
+[node name="GameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.635294 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.458
+anchor_top = 0.318044
+anchor_right = 0.541
+anchor_bottom = 0.388044
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.4
+anchor_top = 0.435
+anchor_right = 0.6
+anchor_bottom = 0.852
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="RestartB" type="Button" parent="Control"]
+anchor_left = 0.358
+anchor_top = 0.129114
+anchor_right = 0.642
+anchor_bottom = 0.252114
+margin_right = 1.52588e-05
+margin_bottom = -8.39233e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try again"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="QuitB" type="Button" parent="Control"]
+anchor_left = 0.358
+anchor_top = 0.301118
+anchor_right = 0.642
+anchor_bottom = 0.424118
+margin_right = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="DelayT" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="button_up" from="Control/RestartB" to="." method="_on_RestartB_button_up"]
+[connection signal="button_up" from="Control/QuitB" to="." method="_on_QuitB_button_up"]
+[connection signal="timeout" from="DelayT" to="." method="_on_DelayT_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Content/default/Maps/GeneratedMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Base/Audio/MusicOverride.gd" type="Script" id=3]
+
+[node name="GeneratedMap" instance=ExtResource( 1 )]
+
+[node name="MusicOverride" type="Node" parent="." index="0"]
+script = ExtResource( 3 )
+transition_type = 2
+
+[node name="MapGenerator" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0280514, 9.53674e-07, -0.0329475 )
+gen_seed = "4255807935"
+main_path_length = 8
+sub_path_max_length = 1
+num_of_sub_paths = 1
+min_room_size = 7
+max_room_size = 12
+_average_room_difficulty = 1.178
+_average_difficulty_variation = 0.475
+_arena_obstacle_outline_thickness = 6
+_prefab_rooms = [  ]
+
+[node name="player_starting_equipment" parent="." index="2"]
+starting_resources = {
+"e_double_barrel_level": 0,
+"r_health": 30
+}

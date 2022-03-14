@@ -1,0 +1,855 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Content/default/Actors/Enemies/Boss/DroneAProjectile2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Base/Actors/Enemies/Drone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Base/Actors/Enemies/DroneBoss.gd" type="Script" id=4]
+[ext_resource path="res://Base/Actors/Enemies/Hurtbox.gd" type="Script" id=5]
+[ext_resource path="res://Content/default/Effects/FireworksBlueBoss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Base/Actors/Enemies/HurtboxSkeleton.gd" type="Script" id=8]
+[ext_resource path="res://Content/default/Actors/Enemies/Boss/DroneBProjectile2.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CapsuleShape" id=19]
+radius = 1.08674
+height = 1.53675
+
+[sub_resource type="CapsuleShape" id=20]
+radius = 0.522538
+height = 3.8953
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.522538
+height = 3.8953
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.613029
+height = 1.06361
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.472105
+height = 1.06361
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 1.3068
+height = 0.780057
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.420375
+height = 2.39989
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.331535, 0.621214, 1 )
+
+[sub_resource type="SphereShape" id=8]
+radius = 1.0359
+
+[sub_resource type="SphereShape" id=9]
+radius = 0.506937
+
+[sub_resource type="CapsuleShape" id=10]
+radius = 0.460746
+height = 0.262237
+
+[sub_resource type="CapsuleShape" id=11]
+radius = 0.460746
+height = 1.08404
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.213516, 0.85923, 0.46192 )
+
+[sub_resource type="CubeMesh" id=13]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0, 1, 0, 1 )
+
+[sub_resource type="Curve3D" id=15]
+_data = {
+"points": PoolVector3Array( 0, 0.3, -0.8, 0, -0.3, 0.8, 0.497539, 1.2145, -0.400138, -0.3, -0.4, 0.6, 0.3, 0.4, -0.6, -0.802461, 0.514504, -0.800138, 0.0670961, 0.354653, -0.585805, -0.0670961, -0.354653, 0.585805, 0.497539, 0.414504, -0.100138, 0, 0.2, 0.8, 0, -0.2, -0.8, -0.802461, 1.2145, -0.400138, 0, 0.3, -0.8, 0, -0.3, 0.8, 0.497539, 1.2145, -0.400138 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.0313726, 0, 0.972549, 1 )
+
+[sub_resource type="Curve3D" id=17]
+_data = {
+"points": PoolVector3Array( 0, -0.6, -0.8, 0, 0.6, 0.8, -0.868895, 0.6644, -0.364238, 0, -0.6, 0.6, 0, 0.6, -0.6, 0.667827, 0.635454, -0.347134, 0, -0.7, -0.6, 0, 0.7, 0.6, -0.868895, 0.6644, -0.364238 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.964706, 0.0235294, 0.0235294, 1 )
+
+[node name="DroneBoss" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Model" type="Spatial" parent="."]
+
+[node name="skelly_low_obj001" type="Spatial" parent="Model"]
+transform = Transform( -0.0982724, 0.0183657, -0.00228705, 0.0184889, 0.097976, -0.00767211, 0.000831728, -0.00796242, -0.099679, 0.126887, 0.721173, 0.0737304 )
+
+[node name="Skeleton" type="Skeleton" parent="Model/skelly_low_obj001"]
+bones/0/name = "root"
+bones/0/parent = -1
+bones/0/rest = Transform( -0.0132987, -0.999899, -0.00492242, -0.347127, 0, 0.937818, -0.937724, 0.0141804, -0.347092, 0.838555, 0.449077, -0.0076865 )
+bones/0/enabled = true
+bones/0/bound_children = [  ]
+bones/1/name = "hips"
+bones/1/parent = 0
+bones/1/rest = Transform( 0.937818, -1.09484e-08, -0.347127, 3.75737e-09, 1, -2.13889e-08, 0.347127, 1.87546e-08, 0.937818, -0.332371, 0.54528, 0.903713 )
+bones/1/enabled = true
+bones/1/bound_children = [  ]
+bones/2/name = "up_legl"
+bones/2/parent = 1
+bones/2/rest = Transform( -0.164162, 0.484993, 0.858972, -0.821086, 0.415413, -0.391472, -0.546689, -0.769554, 0.330026, -0.0784, 1.0911, -0.9728 )
+bones/2/enabled = true
+bones/2/bound_children = [  ]
+bones/3/name = "kneeikl"
+bones/3/parent = 2
+bones/3/rest = Transform( -0.952109, -0.277651, 0.128056, -0.0409155, 0.530743, 0.846544, -0.303009, 0.800763, -0.516685, 2.02936e-07, 4.57635, -1.02042e-07 )
+bones/3/enabled = true
+bones/3/bound_children = [  ]
+bones/4/name = "feetikl"
+bones/4/parent = 3
+bones/4/rest = Transform( -0.979, 0.188459, -0.0777353, -0.203375, -0.876536, 0.436261, 0.0140796, 0.442908, 0.896457, 0.0164145, 0.0568209, 3.58262 )
+bones/4/enabled = true
+bones/4/bound_children = [  ]
+bones/5/name = "feetikl_end"
+bones/5/parent = 4
+bones/5/rest = Transform( 1, 4.06231e-09, 1.75193e-07, -4.06222e-09, 1, -5.25266e-07, -1.75193e-07, 5.25266e-07, 1, -1.59996e-07, 1.5187, 2.79397e-07 )
+bones/5/enabled = true
+bones/5/bound_children = [  ]
+bones/6/name = "lo_legl"
+bones/6/parent = 2
+bones/6/rest = Transform( -0.880053, 0.439214, 0.180548, -0.0847214, 0.228883, -0.96976, -0.467256, -0.868737, -0.164219, -1.5573e-07, 4.57635, 1.74421e-07 )
+bones/6/enabled = true
+bones/6/bound_children = [  ]
+bones/7/name = "footl"
+bones/7/parent = 6
+bones/7/rest = Transform( 0.906892, -0.393353, 0.151065, 0.0618662, 0.478931, 0.87567, -0.416797, -0.784792, 0.458674, -1.78182e-07, 3.5831, -4.5484e-07 )
+bones/7/enabled = true
+bones/7/bound_children = [  ]
+bones/8/name = "footl_end"
+bones/8/parent = 7
+bones/8/rest = Transform( 1, 6.45355e-08, -6.17089e-08, -6.45355e-08, 1, 3.16068e-08, 6.17089e-08, -3.16068e-08, 1, 1.33917e-07, 1.52754, -2.23517e-08 )
+bones/8/enabled = true
+bones/8/bound_children = [  ]
+bones/9/name = "up_legr"
+bones/9/parent = 1
+bones/9/rest = Transform( -0.344816, 0.467515, 0.813961, -0.937553, -0.129232, -0.322946, -0.0457927, -0.874488, 0.482881, -0.0784003, -1.05342, -0.9728 )
+bones/9/enabled = true
+bones/9/bound_children = [  ]
+bones/10/name = "lo_legr"
+bones/10/parent = 9
+bones/10/rest = Transform( -0.636588, 0.374292, -0.674286, 0.770841, 0.335664, -0.541419, 0.0236843, -0.864428, -0.502199, 3.81365e-07, 4.57635, -3.22015e-07 )
+bones/10/enabled = true
+bones/10/bound_children = [  ]
+bones/11/name = "footr"
+bones/11/parent = 10
+bones/11/rest = Transform( 0.87134, 0.420827, 0.252332, -0.329399, 0.120518, 0.936468, 0.36368, -0.8991, 0.243632, -2.28573e-07, 3.58311, 3.02929e-07 )
+bones/11/enabled = true
+bones/11/bound_children = [  ]
+bones/12/name = "footr_end"
+bones/12/parent = 11
+bones/12/rest = Transform( 1, -5.67749e-08, -4.71118e-08, 5.67749e-08, 1, -7.37928e-08, 4.71118e-08, 7.37928e-08, 1, 3.82709e-08, 1.52754, 6.79865e-07 )
+bones/12/enabled = true
+bones/12/bound_children = [  ]
+bones/13/name = "kneeikr"
+bones/13/parent = 9
+bones/13/rest = Transform( -0.982667, 0.14768, -0.11205, -0.078273, 0.217378, 0.972944, 0.168042, 0.964851, -0.202051, 7.8734e-08, 4.57635, 5.28788e-08 )
+bones/13/enabled = true
+bones/13/bound_children = [  ]
+bones/14/name = "feetikr"
+bones/14/parent = 13
+bones/14/rest = Transform( -0.988347, -0.123147, 0.089465, 0.137605, -0.471609, 0.871005, -0.0650689, 0.873166, 0.48306, -0.0164141, 0.0568265, 3.58262 )
+bones/14/enabled = true
+bones/14/bound_children = [  ]
+bones/15/name = "feetikr_end"
+bones/15/parent = 14
+bones/15/rest = Transform( 1, 2.78275e-09, -2.21995e-07, -2.78275e-09, 1, 7.81097e-09, 2.21995e-07, -7.81097e-09, 1, 7.13835e-08, 1.59238, -6.13974e-07 )
+bones/15/enabled = true
+bones/15/bound_children = [  ]
+bones/16/name = "spine_1"
+bones/16/parent = 0
+bones/16/rest = Transform( 0.913595, 0.405602, -0.0288495, 0.0514231, -0.185623, -0.981274, -0.403362, 0.895004, -0.190442, -1.23548, 0.54528, 0.462804 )
+bones/16/enabled = true
+bones/16/bound_children = [  ]
+bones/17/name = "spine_2"
+bones/17/parent = 16
+bones/17/rest = Transform( -0.0282433, -0.73841, -0.67376, 0.0458551, 0.672362, -0.738801, 0.998549, -0.0517615, 0.0148702, -1.45104e-07, 1.11741, -3.42286e-08 )
+bones/17/enabled = true
+bones/17/bound_children = [  ]
+bones/18/name = "spine_3"
+bones/18/parent = 17
+bones/18/rest = Transform( -0.998505, -0.0545989, 0.0024628, -0.0492901, 0.88012, -0.472187, 0.0236133, -0.471603, -0.881495, 3.71402e-08, 1.34648, 4.08937e-08 )
+bones/18/enabled = true
+bones/18/bound_children = [  ]
+bones/19/name = "neck"
+bones/19/parent = 18
+bones/19/rest = Transform( 0.949185, -0.0446606, -0.311533, 0.0115096, 0.994144, -0.10745, 0.314508, 0.0984046, 0.944141, -6.08357e-09, 2.67057, -1.33302e-07 )
+bones/19/enabled = true
+bones/19/bound_children = [  ]
+bones/20/name = "head"
+bones/20/parent = 19
+bones/20/rest = Transform( -0.362098, 0.931527, -0.0337919, -0.0147744, -0.041983, -0.999009, -0.932023, -0.36124, 0.0289648, -5.96388e-08, 1.77954, -3.10529e-07 )
+bones/20/enabled = true
+bones/20/bound_children = [  ]
+bones/21/name = "jaw"
+bones/21/parent = 20
+bones/21/rest = Transform( 0.694328, -0.719281, 0.0232982, -1.78814e-07, -0.032374, -0.999476, 0.719658, 0.693965, -0.0224783, -0.419047, 0.0186051, 0.39208 )
+bones/21/enabled = true
+bones/21/bound_children = [  ]
+bones/22/name = "jaw_end"
+bones/22/parent = 21
+bones/22/rest = Transform( 1, 1.05531e-07, 2.56114e-08, -1.05531e-07, 1, -1.57161e-08, -2.56114e-08, 1.57161e-08, 1, -5.37838e-08, 0.891595, 1.75787e-08 )
+bones/22/enabled = true
+bones/22/bound_children = [  ]
+bones/23/name = "eye_r"
+bones/23/parent = 20
+bones/23/rest = Transform( 1, -1.60739e-08, -1.15664e-06, 1.60752e-08, 1, 1.145e-06, 1.15664e-06, -1.145e-06, 1, -1.0588, -0.282747, -0.0594991 )
+bones/23/enabled = true
+bones/23/bound_children = [  ]
+bones/24/name = "eye_r_end"
+bones/24/parent = 23
+bones/24/rest = Transform( 1, 1.19054e-08, 7.185e-10, -1.19054e-08, 1, -5.3606e-08, -7.18501e-10, 5.3606e-08, 1, 3.25963e-08, 0.1179, 3.87314e-07 )
+bones/24/enabled = true
+bones/24/bound_children = [  ]
+bones/25/name = "eye_l"
+bones/25/parent = 20
+bones/25/rest = Transform( 1, 2.74352e-06, -1.14564e-06, -2.74352e-06, 1, 1.21996e-06, 1.14564e-06, -1.21996e-06, 1, -1.06028, 0.261041, -0.0635974 )
+bones/25/enabled = true
+bones/25/bound_children = [  ]
+bones/26/name = "eye_l_end"
+bones/26/parent = 25
+bones/26/rest = Transform( 1, -1.00054e-06, 8.87646e-10, 1.00054e-06, 1, 3.54768e-08, -8.87681e-10, -3.54769e-08, 1, 2.19326e-07, 0.1179, 6.23724e-07 )
+bones/26/enabled = true
+bones/26/bound_children = [  ]
+bones/27/name = "claviclel"
+bones/27/parent = 18
+bones/27/rest = Transform( -0.433481, 0.89775, 0.0783578, -0.0777512, 0.0493692, -0.99575, -0.897803, -0.43773, 0.0484006, 0.169062, 2.432, 0.917733 )
+bones/27/enabled = true
+bones/27/bound_children = [  ]
+bones/28/name = "up_arml"
+bones/28/parent = 27
+bones/28/rest = Transform( 0.120135, -0.502691, 0.856078, 0.992372, 0.0367801, -0.117664, 0.0276616, 0.863684, 0.503275, -1.678e-07, 1.82984, -3.00992e-07 )
+bones/28/enabled = true
+bones/28/bound_children = [  ]
+bones/29/name = "lo_arml"
+bones/29/parent = 28
+bones/29/rest = Transform( 0.580804, -0.776496, -0.244379, 0.669725, 0.626448, -0.398788, 0.462749, 0.0679509, 0.883881, -1.2004e-06, 3.32551, -9.15256e-07 )
+bones/29/enabled = true
+bones/29/bound_children = [  ]
+bones/30/name = "wristl"
+bones/30/parent = 29
+bones/30/rest = Transform( -0.450618, -0.637301, -0.625133, 0.395697, 0.485121, -0.779796, 0.80023, -0.598753, 0.0335744, -1.6827e-07, 2.76567, -2.47905e-07 )
+bones/30/enabled = true
+bones/30/bound_children = [  ]
+bones/31/name = "handl"
+bones/31/parent = 30
+bones/31/rest = Transform( -0.0109366, 0.126898, -0.991856, 0.885742, 0.461555, 0.0492848, 0.46405, -0.877989, -0.117447, 4.41781e-07, -1.34439e-07, -2.31555e-08 )
+bones/31/enabled = true
+bones/31/bound_children = [  ]
+bones/32/name = "handl_end"
+bones/32/parent = 31
+bones/32/rest = Transform( 1, -4.56348e-08, -9.87202e-08, 4.56348e-08, 1, 5.12227e-08, 9.87202e-08, -5.12228e-08, 1, 5.40167e-08, 0.1179, 3.53903e-08 )
+bones/32/enabled = true
+bones/32/bound_children = [  ]
+bones/33/name = "palm_2_l"
+bones/33/parent = 30
+bones/33/rest = Transform( 0.527709, 0.27206, 0.804678, -0.780899, 0.52815, 0.333548, -0.334245, -0.804389, 0.491161, 0.258612, 0.132489, -0.201755 )
+bones/33/enabled = true
+bones/33/bound_children = [  ]
+bones/34/name = "finger_2_1_l"
+bones/34/parent = 33
+bones/34/rest = Transform( 0.02487, 0.0257018, 0.99936, 0.065648, 0.99747, -0.0272869, -0.997533, 0.0662847, 0.0231198, -2.24409e-07, 0.613697, 9.48798e-09 )
+bones/34/enabled = true
+bones/34/bound_children = [  ]
+bones/35/name = "finger_2_2_l"
+bones/35/parent = 34
+bones/35/rest = Transform( -0.979393, 0.0268506, -0.200168, 0.0161469, 0.99836, 0.0549159, 0.201315, 0.0505521, -0.978221, 2.14385e-07, 0.357632, -2.66451e-07 )
+bones/35/enabled = true
+bones/35/bound_children = [  ]
+bones/36/name = "finger_2_3_l"
+bones/36/parent = 35
+bones/36/rest = Transform( -0.742193, -1.82666e-06, -0.670186, 8.36661e-07, 1, -3.65216e-06, 0.670186, -3.27133e-06, -0.742193, -8.69993e-08, 0.265032, 5.86865e-09 )
+bones/36/enabled = true
+bones/36/bound_children = [  ]
+bones/37/name = "finger_2_3_l_end"
+bones/37/parent = 36
+bones/37/rest = Transform( 1, 1.55717e-06, -6.5565e-07, -1.55717e-06, 1, 1.92225e-06, 6.55653e-07, -1.92225e-06, 1, 2.08617e-07, 0.185859, 5.96045e-08 )
+bones/37/enabled = true
+bones/37/bound_children = [  ]
+bones/38/name = "palm_3_l"
+bones/38/parent = 30
+bones/38/rest = Transform( 0.988425, 0.114961, -0.0989944, 0.0153543, 0.57337, 0.819153, 0.150931, -0.811191, 0.564968, 0.164563, 0.143875, -0.247162 )
+bones/38/enabled = true
+bones/38/bound_children = [  ]
+bones/39/name = "finger_3_1_l"
+bones/39/parent = 38
+bones/39/rest = Transform( -0.975144, 0.142146, 0.169969, 0.132597, 0.988948, -0.0663284, -0.177518, -0.0421424, -0.983215, -7.45058e-09, 0.585728, -5.30854e-08 )
+bones/39/enabled = true
+bones/39/bound_children = [  ]
+bones/40/name = "finger_3_2_l"
+bones/40/parent = 39
+bones/40/rest = Transform( 0.99774, 0.00871378, -0.0666194, -0.0124687, 0.998344, -0.056157, 0.0660198, 0.0568608, 0.996197, 7.30301e-08, 0.427605, 8.1785e-08 )
+bones/40/enabled = true
+bones/40/bound_children = [  ]
+bones/41/name = "finger_3_3_l"
+bones/41/parent = 40
+bones/41/rest = Transform( 0.990457, 2.95786e-06, 0.137823, -3.14188e-06, 1, 1.1176e-06, -0.137823, -1.53996e-06, 0.990457, 2.86419e-07, 0.297334, 1.72703e-07 )
+bones/41/enabled = true
+bones/41/bound_children = [  ]
+bones/42/name = "finger_3_3_l_end"
+bones/42/parent = 41
+bones/42/rest = Transform( 1, -1.16974e-06, -4.24683e-07, 1.16974e-06, 1, 3.35274e-08, 4.24683e-07, -3.35279e-08, 1, -4.17232e-07, 0.213681, -3.81917e-14 )
+bones/42/enabled = true
+bones/42/bound_children = [  ]
+bones/43/name = "palm_4_l"
+bones/43/parent = 30
+bones/43/rest = Transform( 0.0547281, -0.00394583, -0.998494, 0.880537, 0.4717, 0.0463988, 0.470806, -0.88175, 0.0292897, 0.0442246, 0.134422, -0.261933 )
+bones/43/enabled = true
+bones/43/bound_children = [  ]
+bones/44/name = "finger_4_1_l"
+bones/44/parent = 43
+bones/44/rest = Transform( -0.718762, -0.0842877, -0.690128, 0.0122514, 0.990934, -0.133786, 0.695148, -0.104615, -0.711213, -1.97232e-07, 0.523936, 2.41125e-08 )
+bones/44/enabled = true
+bones/44/bound_children = [  ]
+bones/45/name = "finger_4_2_l"
+bones/45/parent = 44
+bones/45/rest = Transform( -0.274854, 0.0847192, 0.957747, 0.232845, 0.972324, -0.019187, -0.932866, 0.217733, -0.286974, 6.80663e-08, 0.419832, -2.78698e-07 )
+bones/45/enabled = true
+bones/45/bound_children = [  ]
+bones/46/name = "finger_4_3_l"
+bones/46/parent = 45
+bones/46/rest = Transform( -0.987743, -8.22394e-07, -0.156093, -7.14144e-07, 1, -7.49582e-07, 0.156093, -6.28921e-07, -0.987742, -2.6639e-07, 0.280052, 7.50142e-08 )
+bones/46/enabled = true
+bones/46/bound_children = [  ]
+bones/47/name = "finger_4_3_l_end"
+bones/47/parent = 46
+bones/47/rest = Transform( 1, -6.68457e-07, -5.86734e-08, 6.68457e-07, 1, 2.99886e-07, 5.86732e-08, -2.99886e-07, 1, -3.57628e-07, 0.187951, 6.70553e-08 )
+bones/47/enabled = true
+bones/47/bound_children = [  ]
+bones/48/name = "palm_5_l"
+bones/48/parent = 30
+bones/48/rest = Transform( 0.0297698, -0.157502, -0.98707, 0.882973, 0.466976, -0.047883, 0.468479, -0.87013, 0.152972, -0.064076, 0.107982, -0.281633 )
+bones/48/enabled = true
+bones/48/bound_children = [  ]
+bones/49/name = "finger_5_1_l"
+bones/49/parent = 48
+bones/49/rest = Transform( 0.936808, -0.0156514, 0.349493, -0.131026, 0.91059, 0.391991, -0.32438, -0.413013, 0.850998, 3.6806e-07, 0.491252, 1.15068e-07 )
+bones/49/enabled = true
+bones/49/bound_children = [  ]
+bones/50/name = "finger_5_2_l"
+bones/50/parent = 49
+bones/50/rest = Transform( -0.901174, -0.155322, -0.404674, -0.107887, 0.984588, -0.137651, 0.419817, -0.0803882, -0.904041, -9.35337e-08, 0.351327, -1.88893e-07 )
+bones/50/enabled = true
+bones/50/bound_children = [  ]
+bones/51/name = "finger_5_3_l"
+bones/51/parent = 50
+bones/51/rest = Transform( -0.913433, 4.75816e-07, -0.406989, 1.86684e-06, 1, -3.02075e-06, 0.406989, -3.51904e-06, -0.913433, -5.61383e-08, 0.176709, 2.49473e-07 )
+bones/51/enabled = true
+bones/51/bound_children = [  ]
+bones/52/name = "finger_5_3_l_end"
+bones/52/parent = 51
+bones/52/rest = Transform( 1, 4.26545e-07, 3.23169e-07, -4.26546e-07, 1, 1.94833e-06, -3.23169e-07, -1.94833e-06, 1, -8.9407e-08, 0.131712, -2.98023e-08 )
+bones/52/enabled = true
+bones/52/bound_children = [  ]
+bones/53/name = "palm_1_l"
+bones/53/parent = 30
+bones/53/rest = Transform( 0.0323996, 0.886841, 0.460937, -0.8866, 0.238402, -0.396365, -0.461401, -0.395825, 0.793997, 2.91912e-07, -3.26684e-07, -1.58515e-07 )
+bones/53/enabled = true
+bones/53/bound_children = [  ]
+bones/54/name = "finger_1_1_l"
+bones/54/parent = 53
+bones/54/rest = Transform( -0.579164, 0.192883, -0.792064, 0.375456, 0.925536, -0.0491512, 0.723602, -0.325852, -0.608457, -1.63854e-07, 0.420221, -8.44691e-07 )
+bones/54/enabled = true
+bones/54/bound_children = [  ]
+bones/55/name = "finger_1_2_l"
+bones/55/parent = 54
+bones/55/rest = Transform( 0.183405, -0.141887, -0.972744, -0.0360076, 0.987895, -0.150886, 0.982377, 0.0626995, 0.176076, -4.4603e-08, 0.356827, -5.71807e-07 )
+bones/55/enabled = true
+bones/55/bound_children = [  ]
+bones/56/name = "finger_1_3_l"
+bones/56/parent = 55
+bones/56/rest = Transform( 0.910656, 0.0511129, 0.409991, -0.0408912, 0.998596, -0.0336676, -0.411136, 0.0138946, 0.911468, -6.49689e-09, 0.399837, -2.25605e-07 )
+bones/56/enabled = true
+bones/56/bound_children = [  ]
+bones/57/name = "finger_1_3_l_end"
+bones/57/parent = 56
+bones/57/rest = Transform( 1, 5.63078e-06, -3.30433e-06, -5.63077e-06, 1, 1.02446e-06, 3.30434e-06, -1.02445e-06, 1, 2.98024e-07, 0.1179, 6.7056e-08 )
+bones/57/enabled = true
+bones/57/bound_children = [  ]
+bones/58/name = "elbowikl"
+bones/58/parent = 28
+bones/58/rest = Transform( -0.657886, 0.600147, 0.454983, 0.0750454, 0.653366, -0.753313, -0.749369, -0.46145, -0.474879, 3.81387e-07, 3.32551, 5.57164e-08 )
+bones/58/enabled = true
+bones/58/bound_children = [  ]
+bones/59/name = "elbowikl_end"
+bones/59/parent = 58
+bones/59/rest = Transform( 1, 1.20997e-06, -4.88823e-06, -1.20997e-06, 1, -1.77396e-07, 4.88823e-06, 1.77402e-07, 1, 4.98852e-07, 1.46796, 1.21314e-12 )
+bones/59/enabled = true
+bones/59/bound_children = [  ]
+bones/60/name = "clavicler"
+bones/60/parent = 18
+bones/60/rest = Transform( -0.317873, -0.944816, -0.0792493, 0.0189344, 0.0772422, -0.996833, 0.947945, -0.318367, -0.00666368, -0.222396, 2.42979, 0.916534 )
+bones/60/enabled = true
+bones/60/bound_children = [  ]
+bones/61/name = "up_armr"
+bones/61/parent = 60
+bones/61/rest = Transform( 0.550047, 0.500603, -0.668464, -0.801892, 0.0930084, -0.590185, -0.233276, 0.860666, 0.452589, -9.12414e-08, 1.9727, -2.87439e-07 )
+bones/61/enabled = true
+bones/61/bound_children = [  ]
+bones/62/name = "lo_armr"
+bones/62/parent = 61
+bones/62/rest = Transform( 0.0760731, 0.564623, 0.821836, 0.328106, 0.764147, -0.555361, -0.941573, 0.311897, -0.127125, 3.95953e-07, 3.32551, -2.37111e-07 )
+bones/62/enabled = true
+bones/62/bound_children = [  ]
+bones/63/name = "wristr"
+bones/63/parent = 62
+bones/63/rest = Transform( 0.3386, 0.874839, 0.346421, -0.119407, 0.405143, -0.906422, -0.933324, 0.265549, 0.241643, -5.07345e-07, 2.77388, -7.03388e-08 )
+bones/63/enabled = true
+bones/63/bound_children = [  ]
+bones/64/name = "handr"
+bones/64/parent = 63
+bones/64/rest = Transform( 0.16751, -0.163226, 0.972264, -0.904194, 0.367599, 0.217496, -0.392904, -0.915549, -0.0860109, -4.05793e-07, -2.25029e-07, -5.28886e-07 )
+bones/64/enabled = true
+bones/64/bound_children = [  ]
+bones/65/name = "handr_end"
+bones/65/parent = 64
+bones/65/rest = Transform( 1, 1.9127e-07, -2.70084e-07, -1.9127e-07, 1, -8.66712e-08, 2.70084e-07, 8.66712e-08, 1, 7.07806e-08, 0.1179, -1.60188e-07 )
+bones/65/enabled = true
+bones/65/bound_children = [  ]
+bones/66/name = "palm_2_r"
+bones/66/parent = 63
+bones/66/rest = Transform( 0.243473, -0.321441, -0.915094, 0.9143, 0.390938, 0.105939, 0.323691, -0.862464, 0.389076, -0.222388, 0.079734, -0.187965 )
+bones/66/enabled = true
+bones/66/bound_children = [  ]
+bones/67/name = "finger_2_1_r"
+bones/67/parent = 66
+bones/67/rest = Transform( -0.118086, -0.0817807, -0.98963, 0.244199, 0.963605, -0.108769, 0.962508, -0.254511, -0.0938179, -1.10386e-07, 0.613695, 1.23456e-08 )
+bones/67/enabled = true
+bones/67/bound_children = [  ]
+bones/68/name = "finger_2_2_r"
+bones/68/parent = 67
+bones/68/rest = Transform( -0.973947, -0.0317783, 0.224538, -0.00175359, 0.991159, 0.13267, -0.226769, 0.12882, -0.965392, -1.392e-07, 0.357631, 3.45281e-07 )
+bones/68/enabled = true
+bones/68/bound_children = [  ]
+bones/69/name = "finger_2_3_r"
+bones/69/parent = 68
+bones/69/rest = Transform( -0.742265, 0.00175917, 0.670104, -0.0876083, 0.991159, -0.0996447, -0.664354, -0.13267, -0.735549, 5.60956e-07, 0.265035, -2.39857e-07 )
+bones/69/enabled = true
+bones/69/bound_children = [  ]
+bones/70/name = "finger_2_3_r_end"
+bones/70/parent = 69
+bones/70/rest = Transform( 1, 1.52364e-06, 6.18399e-07, -1.52364e-06, 1, 7.82311e-07, -6.18398e-07, -7.82311e-07, 1, -5.06639e-07, 0.185859, -2.98022e-08 )
+bones/70/enabled = true
+bones/70/bound_children = [  ]
+bones/71/name = "palm_3_r"
+bones/71/parent = 63
+bones/71/rest = Transform( 0.978145, -0.176547, -0.109831, 0.181445, 0.466835, 0.86553, -0.101533, -0.866543, 0.488667, -0.129878, 0.106392, -0.230013 )
+bones/71/enabled = true
+bones/71/bound_children = [  ]
+bones/72/name = "finger_3_1_r"
+bones/72/parent = 71
+bones/72/rest = Transform( -0.98336, 0.166643, 0.0723468, 0.139353, 0.947402, -0.288115, -0.116554, -0.273239, -0.954859, 2.34679e-07, 0.585728, -2.28221e-07 )
+bones/72/enabled = true
+bones/72/bound_children = [  ]
+bones/73/name = "finger_3_2_r"
+bones/73/parent = 72
+bones/73/rest = Transform( 0.997863, 0.0201029, 0.0621773, -0.00810145, 0.982221, -0.18755, -0.0648422, 0.186646, 0.980285, 1.26612e-07, 0.427604, 1.7862e-07 )
+bones/73/enabled = true
+bones/73/bound_children = [  ]
+bones/74/name = "finger_3_3_r"
+bones/74/parent = 73
+bones/74/rest = Transform( 0.99039, 0.00572797, -0.138183, -0.0239407, 0.991159, -0.130503, 0.136213, 0.132558, 0.981771, 2.95105e-08, 0.297335, 2.46096e-07 )
+bones/74/enabled = true
+bones/74/bound_children = [  ]
+bones/75/name = "finger_3_3_r_end"
+bones/75/parent = 74
+bones/75/rest = Transform( 1, 1.017e-06, -4.09788e-08, -1.017e-06, 1, -1.2666e-06, 4.09775e-08, 1.2666e-06, 1, 4.32134e-07, 0.213681, 5.96046e-08 )
+bones/75/enabled = true
+bones/75/bound_children = [  ]
+bones/76/name = "palm_4_r"
+bones/76/parent = 63
+bones/76/rest = Transform( 0.114989, -0.0354011, 0.992736, -0.914581, 0.386278, 0.119711, -0.38771, -0.921703, 0.0120404, -0.00941279, 0.12074, -0.238436 )
+bones/76/enabled = true
+bones/76/bound_children = [  ]
+bones/77/name = "finger_4_1_r"
+bones/77/parent = 76
+bones/77/rest = Transform( -0.623792, 0.108778, 0.773983, 0.0707003, 0.994062, -0.0827277, -0.778386, 0.00311588, -0.627778, 3.42585e-07, 0.523934, -3.32814e-07 )
+bones/77/enabled = true
+bones/77/bound_children = [  ]
+bones/78/name = "finger_4_2_r"
+bones/78/parent = 77
+bones/78/rest = Transform( -0.288768, -0.0834912, -0.953752, -0.123107, 0.991159, -0.0494928, 0.949451, 0.103121, -0.296493, 2.35633e-07, 0.419834, 2.7221e-07 )
+bones/78/enabled = true
+bones/78/bound_children = [  ]
+bones/79/name = "finger_4_3_r"
+bones/79/parent = 78
+bones/79/rest = Transform( -0.979747, 0.123103, 0.157925, 0.129318, 0.991159, 0.0296659, -0.152877, 0.0494877, -0.987005, -1.99487e-07, 0.280052, 2.41318e-07 )
+bones/79/enabled = true
+bones/79/bound_children = [  ]
+bones/80/name = "finger_4_3_r_end"
+bones/80/parent = 79
+bones/80/rest = Transform( 1, -2.38884e-06, -1.04215e-06, 2.38884e-06, 1, 3.18511e-07, 1.04215e-06, -3.18514e-07, 1, 2.68221e-07, 0.187951, 3.27826e-07 )
+bones/80/enabled = true
+bones/80/bound_children = [  ]
+bones/81/name = "palm_5_r"
+bones/81/parent = 63
+bones/81/rest = Transform( 0.16971, 0.114918, 0.97877, -0.903699, 0.41431, 0.108049, -0.393098, -0.902851, 0.174165, 0.103016, 0.115629, -0.250674 )
+bones/81/enabled = true
+bones/81/bound_children = [  ]
+bones/82/name = "finger_5_1_r"
+bones/82/parent = 81
+bones/82/rest = Transform( 0.951018, 0.229451, -0.207164, -0.213282, 0.972105, 0.0975802, 0.223775, -0.0486162, 0.973427, -4.04734e-07, 0.491252, 2.28388e-07 )
+bones/82/enabled = true
+bones/82/bound_children = [  ]
+bones/83/name = "finger_5_2_r"
+bones/83/parent = 82
+bones/83/rest = Transform( -0.892241, 0.235048, 0.385561, 0.191544, 0.970228, -0.148218, -0.40892, -0.0583939, -0.910699, 2.29492e-07, 0.351328, -2.84387e-07 )
+bones/83/enabled = true
+bones/83/bound_children = [  ]
+bones/84/name = "finger_5_3_r"
+bones/84/parent = 83
+bones/84/rest = Transform( -0.910184, -0.104919, 0.400695, -0.062806, 0.99116, 0.116864, -0.409414, 0.0812016, -0.908728, -6.22025e-08, 0.176707, -4.6883e-07 )
+bones/84/enabled = true
+bones/84/bound_children = [  ]
+bones/85/name = "finger_5_3_r_end"
+bones/85/parent = 84
+bones/85/rest = Transform( 1, 7.00356e-06, -6.99981e-06, -7.00354e-06, 1, 3.13299e-06, 6.99983e-06, -3.13294e-06, 1, 2.23516e-07, 0.131712, -1.19207e-07 )
+bones/85/enabled = true
+bones/85/bound_children = [  ]
+bones/86/name = "palm_1_r"
+bones/86/parent = 63
+bones/86/rest = Transform( -0.43431, -0.797945, -0.417922, 0.806466, -0.137793, -0.575, 0.401232, -0.586768, 0.703361, -2.8345e-07, 5.74991e-09, -5.40902e-07 )
+bones/86/enabled = true
+bones/86/bound_children = [  ]
+bones/87/name = "palm_1_r_end"
+bones/87/parent = 86
+bones/87/rest = Transform( 1, 2.04891e-08, 1.2666e-07, -2.04891e-08, 1, -5.96047e-08, -1.2666e-07, 5.96047e-08, 1, 4.84288e-07, 0.350708, -1.49012e-08 )
+bones/87/enabled = true
+bones/87/bound_children = [  ]
+bones/88/name = "finger_1_1_r"
+bones/88/parent = 63
+bones/88/rest = Transform( 0.187458, -0.437569, -0.879428, 0.980481, 0.0293113, 0.194414, -0.0592924, -0.898707, 0.434523, -0.279847, -0.0483246, -0.205785 )
+bones/88/enabled = true
+bones/88/bound_children = [  ]
+bones/89/name = "finger_1_2_r"
+bones/89/parent = 88
+bones/89/rest = Transform( -0.365361, 0.0381652, 0.930083, -0.140893, 0.985381, -0.0957808, -0.920142, -0.166037, -0.354643, 3.17172e-07, 0.420961, 2.2244e-08 )
+bones/89/enabled = true
+bones/89/bound_children = [  ]
+bones/90/name = "finger_1_3_r"
+bones/90/parent = 89
+bones/90/rest = Transform( 0.339313, -0.0318109, -0.940135, -0.0162461, 0.99908, -0.0396689, 0.940533, 0.0287337, 0.338484, -2.29547e-07, 0.315178, 2.2637e-07 )
+bones/90/enabled = true
+bones/90/bound_children = [  ]
+bones/91/name = "finger_1_3_r_end"
+bones/91/parent = 90
+bones/91/rest = Transform( 1, 1.81794e-06, -1.15111e-06, -1.81794e-06, 1, 5.40168e-07, 1.15112e-06, -5.40166e-07, 1, -5.96045e-08, 0.177089, 1.78814e-07 )
+bones/91/enabled = true
+bones/91/bound_children = [  ]
+bones/92/name = "elbowikr"
+bones/92/parent = 61
+bones/92/rest = Transform( -0.512413, -0.776305, 0.367127, -0.839862, 0.363894, -0.402756, 0.179066, -0.514713, -0.838454, -2.85362e-07, 3.32551, -1.77391e-07 )
+bones/92/enabled = true
+bones/92/bound_children = [  ]
+bones/93/name = "elbowikr_end"
+bones/93/parent = 92
+bones/93/rest = Transform( 1, -1.46217e-07, 2.52388e-06, 1.46218e-07, 1, -4.64264e-07, -2.52388e-06, 4.64264e-07, 1, -2.38419e-07, 1.54854, -1.49011e-07 )
+bones/93/enabled = true
+bones/93/bound_children = [  ]
+script = ExtResource( 8 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.0141805, -0.999899, 2.51457e-08, 0, 2.13889e-08, 1, -0.999899, 0.0141804, 1.78814e-07, 0.293302, 1.41197, -0.00195349 )
+bone_name = "hips"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment/StaticBody"]
+transform = Transform( 0.992202, -0.1193, 0.0361257, -0.0226191, 0.112688, 0.993373, -0.122581, -0.986443, 0.10911, -0.619999, -0.0109918, -0.557909 )
+shape = SubResource( 19 )
+
+[node name="BoneAttachment2" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.823331, -0.422249, 0.379252, -0.546689, -0.769554, 0.330026, 0.152502, -0.479054, -0.864437, -0.796576, 0.43917, 0.0919107 )
+bone_name = "up_legl"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment2"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment2/StaticBody"]
+transform = Transform( 0.992201, -0.1193, 0.0361258, -0.0226192, 0.112688, 0.993373, -0.122581, -0.986443, 0.109111, -0.117854, 1.88579, -0.00465631 )
+shape = SubResource( 20 )
+
+[node name="BoneAttachment3" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.942348, 0.122589, 0.311371, -0.0457927, -0.874488, 0.482881, 0.331486, -0.469301, -0.818459, 1.34773, 0.43917, 0.0615008 )
+bone_name = "up_legr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment3"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment3/StaticBody"]
+transform = Transform( 0.992201, -0.1193, 0.0361258, -0.0226192, 0.112688, 0.993373, -0.122581, -0.986443, 0.109111, -0.117854, 1.88579, -0.00465631 )
+shape = SubResource( 2 )
+
+[node name="BoneAttachment4" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.866009, -0.0644971, 0.49585, 0.392106, -0.702957, 0.593382, 0.31029, 0.708302, 0.634058, -2.72893, -3.08258, -2.10041 )
+bone_name = "lo_legl"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment4"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment4/StaticBody"]
+transform = Transform( 0.992201, -0.1193, 0.0361258, -0.0226192, 0.112688, 0.993373, -0.122581, -0.986443, 0.109111, -0.117854, 1.88579, -0.00465631 )
+shape = SubResource( 2 )
+
+[node name="BoneAttachment5" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.498016, 0.124704, -0.858155, -0.633503, -0.72809, 0.261839, -0.592161, 0.674044, 0.441601, 1.90874, -3.56279, -2.08618 )
+bone_name = "lo_legr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment5"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment5/StaticBody"]
+transform = Transform( 0.992201, -0.1193, 0.0361258, -0.0226192, 0.112688, 0.993373, -0.122581, -0.986443, 0.109111, -0.117854, 1.88579, -0.00465631 )
+shape = SubResource( 2 )
+
+[node name="BoneAttachment6" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.996036, -0.0793816, 0.0401317, 0.0647887, -0.956586, -0.284156, 0.0609456, -0.280429, 0.957939, -2.96003, -5.60134, 0.43751 )
+bone_name = "footl"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment6"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment6/StaticBody"]
+transform = Transform( 0.995306, -0.0703036, 0.0665213, -0.083317, -0.272589, 0.958517, -0.0492544, -0.95956, -0.277166, 0.00554514, 0.92113, 0.0518792 )
+shape = SubResource( 3 )
+
+[node name="BoneAttachment7" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.787112, 0.577017, -0.217958, -0.216939, -0.589763, -0.777893, -0.577402, -0.565006, 0.589387, 2.35557, -6.17162, 0.328991 )
+bone_name = "footr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment7"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment7/StaticBody"]
+transform = Transform( 0.995306, -0.0703036, 0.0665213, -0.083317, -0.272589, 0.958517, -0.0492544, -0.95956, -0.277166, 0.00554514, 0.92113, 0.0518792 )
+shape = SubResource( 3 )
+
+[node name="BoneAttachment8" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.990871, 0.112822, -0.0737833, -0.116668, 0.991909, -0.0500585, 0.067539, 0.0582094, 0.996018, 0.503928, 2.09254, 0.222888 )
+bone_name = "spine_2"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment8"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment8/StaticBody"]
+transform = Transform( 0.998045, -0.0625127, -0.000881159, -0.0170807, -0.286204, 0.958017, -0.0601408, -0.956129, -0.286711, 0.0362081, 0.37844, -0.216407 )
+shape = SubResource( 4 )
+
+[node name="BoneAttachment9" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.996693, 0.0799926, 0.0142069, 0.06642, 0.902976, -0.424527, -0.0467879, -0.422181, -0.905304, 0.65584, 3.42813, 0.301265 )
+bone_name = "spine_3"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment9"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment9/StaticBody"]
+transform = Transform( 0.998525, -0.0542668, 0.00234107, -0.0136257, -0.208528, 0.977922, -0.0525806, -0.976511, -0.20896, -0.0129755, 1.09579, 0.635232 )
+shape = SubResource( 5 )
+
+[node name="BoneAttachment10" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.844928, -0.376295, 0.380127, 0.296423, -0.920986, -0.252826, 0.445228, -0.100941, 0.889711, -0.946542, 5.77651, -0.95409 )
+bone_name = "up_arml"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment10"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment10/StaticBody"]
+transform = Transform( 0.995882, -0.0686697, 0.0592236, -0.0605512, -0.0174212, 0.998013, -0.0675019, -0.997488, -0.0215076, -0.0147033, 1.60819, 0.0522399 )
+shape = SubResource( 6 )
+
+[node name="BoneAttachment11" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.573758, 0.253113, -0.778932, -0.127008, -0.967042, -0.220685, -0.809119, -0.0276882, 0.586995, 2.94583, 5.49872, -0.952439 )
+bone_name = "up_armr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment11"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment11/StaticBody"]
+transform = Transform( 0.995882, -0.0686698, 0.0592236, -0.0605512, -0.0174212, 0.998013, -0.0675019, -0.997488, -0.0215075, 0.0456738, 1.58951, 0.127622 )
+shape = SubResource( 6 )
+
+[node name="BoneAttachment12" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.566849, 0.446184, 0.692532, -0.561639, -0.824301, 0.0713703, 0.6027, -0.348496, 0.717849, -2.19791, 2.71377, -1.28977 )
+bone_name = "lo_arml"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment12"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment12/StaticBody"]
+transform = Transform( 0.995882, -0.0686698, 0.0592236, -0.0605512, -0.0174212, 0.998013, -0.0675019, -0.997488, -0.0215075, 0.0456738, 1.58951, 0.127622 )
+shape = SubResource( 6 )
+
+[node name="BoneAttachment13" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.772821, -0.373488, -0.513082, -0.119163, -0.879505, 0.460732, -0.623336, -0.294923, -0.724208, 3.78756, 2.28282, -1.04452 )
+bone_name = "lo_armr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment13"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment13/StaticBody"]
+transform = Transform( 0.997207, -0.0672691, -0.0325013, 0.0323808, -0.00289065, 0.999472, -0.0673278, -0.997731, -0.000704393, -0.0625896, 1.64084, 0.128618 )
+shape = SubResource( 6 )
+
+[node name="BoneAttachment14" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.147406, 0.174346, -0.973589, 0.387489, -0.915839, -0.105338, -0.910016, -0.361727, -0.202558, -0.963916, 0.434021, -2.2536 )
+bone_name = "handl"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment14"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment14/StaticBody"]
+transform = Transform( 0.998187, -0.0577772, 0.0168744, -0.0268999, -0.177429, 0.983766, -0.0538456, -0.982436, -0.178661, -0.0745845, 0.8958, -0.216743 )
+shape = SubResource( 7 )
+
+[node name="BoneAttachment15" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.409275, -0.426881, 0.806392, -0.0961241, -0.858712, -0.503365, 0.907335, -0.283528, 0.310417, 2.75155, -0.156823, -1.8626 )
+bone_name = "handr"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment15"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment15/StaticBody"]
+transform = Transform( 0.996639, -0.0117428, 0.0810796, -0.0806703, 0.0318704, 0.996233, -0.0142826, -0.999424, 0.030816, 0.16428, 0.928538, -0.0758591 )
+shape = SubResource( 7 )
+
+[node name="BoneAttachment16" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.0448705, -0.99542, -0.084391, 0.492435, 0.095539, -0.86509, 0.869193, -0.00274038, 0.494469, 1.09268, 7.35744, -1.7279 )
+bone_name = "head"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment16"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment16/StaticBody"]
+transform = Transform( 0.997207, -0.0672699, -0.0325013, 0.0323807, -0.00289065, 0.999471, -0.0673279, -0.997731, -0.000704456, -0.262044, 0.0415447, -0.0407038 )
+shape = SubResource( 8 )
+
+[node name="BoneAttachment17" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.0295776, -0.0586132, 0.997841, -0.280658, -0.957635, -0.0645704, 0.959353, -0.281961, 0.0118748, 1.02227, 6.81368, -1.89831 )
+bone_name = "jaw"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment17"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment17/StaticBody"]
+transform = Transform( 0.997206, -0.0672696, -0.0325013, 0.0323808, -0.00289065, 0.999471, -0.0673279, -0.997731, -0.000704426, -0.15352, 0.665844, 0.0357966 )
+shape = SubResource( 9 )
+
+[node name="BoneAttachment18" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( -0.940657, 0.125435, 0.315321, -0.0600795, 0.852947, -0.518531, -0.333995, -0.506706, -0.794796, 0.869466, 5.83959, -0.826199 )
+bone_name = "neck"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment18"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment18/StaticBody"]
+transform = Transform( 0.996989, -0.0668144, 0.0394023, -0.0407522, -0.0189722, 0.998988, -0.066, -0.997585, -0.0216378, 0.092758, 0.44408, 0.351508 )
+shape = SubResource( 10 )
+
+[node name="BoneAttachment19" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.413073, -0.897051, -0.157064, 0.282143, 0.290036, -0.914482, 0.865892, 0.333432, 0.372904, 0.694918, 5.24579, -1.56422 )
+bone_name = "claviclel"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment19"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment19/StaticBody"]
+transform = Transform( 0.998287, -0.0514255, 0.027977, -0.0356223, -0.154366, 0.98737, -0.046458, -0.986675, -0.155933, 0.133247, 0.982808, 0.0311117 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment19/StaticBody"]
+transform = Transform( 0.660375, -0.111152, -0.742665, 0.744004, -0.0372478, 0.667137, -0.101817, -0.993106, 0.0581, 0.604011, 1.2847, 0.759166 )
+shape = SubResource( 12 )
+
+[node name="BoneAttachment20" type="BoneAttachment" parent="Model/skelly_low_obj001/Skeleton"]
+transform = Transform( 0.331804, 0.943347, -0.000846665, -0.406444, 0.142149, -0.902551, -0.8513, 0.299815, 0.430585, 1.08489, 5.21831, -1.54388 )
+bone_name = "clavicler"
+
+[node name="StaticBody" type="StaticBody" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment20"]
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment20/StaticBody"]
+transform = Transform( 0.998287, -0.0514255, 0.027977, -0.0356223, -0.154366, 0.98737, -0.046458, -0.986675, -0.155933, 0.133247, 0.982808, 0.0311117 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Model/skelly_low_obj001/Skeleton/BoneAttachment20/StaticBody"]
+transform = Transform( 0.808796, -0.00453106, 0.588073, -0.588008, 0.0107175, 0.808785, -0.00996697, -0.999933, 0.00600431, -0.689622, 1.29403, 0.785701 )
+shape = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+
+[node name="Drone" parent="." instance=ExtResource( 3 )]
+projectile = ExtResource( 2 )
+destroy_effect = ExtResource( 6 )
+
+[node name="PathFollow" parent="Drone" index="1"]
+transform = Transform( 0.210595, 0.314815, 0.925454, -0.564813, -0.733518, 0.378028, 0.797855, -0.602362, 0.0233368, -0.802461, 1.3145, -0.300138 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Drone/PathFollow" index="0"]
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="Drone2" parent="." instance=ExtResource( 3 )]
+curve = SubResource( 15 )
+projectile = ExtResource( 9 )
+destroy_effect = ExtResource( 6 )
+
+[node name="PathFollow" parent="Drone2" index="1"]
+transform = Transform( -0.0778414, -0.658492, 0.748519, 0.89499, 0.284597, 0.343419, -0.439171, 0.6967, 0.567185, 0.497539, 1.2145, -0.400138 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Drone2/PathFollow" index="0"]
+mesh = SubResource( 13 )
+material/0 = SubResource( 16 )
+
+[node name="Drone3" parent="." instance=ExtResource( 3 )]
+curve = SubResource( 17 )
+destroy_effect = ExtResource( 6 )
+
+[node name="PathFollow" parent="Drone3" index="1"]
+transform = Transform( -0.451318, 0.0889168, -0.887878, 0.886271, -0.0710826, -0.457609, -0.103803, -0.993499, -0.0467228, 0.231424, 0.74166, -0.762643 )
+offset = 2.90725
+
+[node name="MeshInstance" type="MeshInstance" parent="Drone3/PathFollow" index="0"]
+mesh = SubResource( 13 )
+material/0 = SubResource( 18 )
+
+[connection signal="tree_exiting" from="." to="." method="_on_Boss_tree_exiting"]
+[connection signal="deal_damage" from="Model/skelly_low_obj001/Skeleton" to="." method="deal_damage"]
+
+[editable path="Drone"]
+[editable path="Drone2"]
+[editable path="Drone3"]

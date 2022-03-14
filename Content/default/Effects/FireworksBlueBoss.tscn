@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Base/Effects/Fireworks.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.748191, 1 )
+colors = PoolColorArray( 0, 0, 1, 1, 0.081042, 0.081042, 1, 1, 0, 0, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.333992 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.425187, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.1
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, -1.205, 0 )
+initial_velocity = 1.18
+initial_velocity_random = 0.26
+angular_velocity_random = 0.49
+damping = 0.83
+scale = 0.3
+scale_random = 0.09
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = -0.08
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[node name="Fireworks" type="Particles"]
+amount = 107
+explosiveness = 1.0
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0, 0, 1, 1 )
+light_energy = 5.12
+omni_range = 89.7701
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unit_size = 77.9
+autoplay = true
+bus = "Effects"

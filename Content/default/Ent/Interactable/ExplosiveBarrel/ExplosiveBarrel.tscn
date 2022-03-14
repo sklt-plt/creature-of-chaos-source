@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Base/Ent/Hazards/Explosive.gd" type="Script" id=1]
+[ext_resource path="res://Content/default/Effects/ExplosionParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Base/Ent/Interactable/KinematicBodyPushDetection.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Base/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.gd" type="Script" id=4]
+
+[sub_resource type="CylinderShape" id=5]
+radius = 0.486648
+height = 0.709082
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.498048
+height = 0.0577824
+
+[sub_resource type="SphereShape" id=7]
+radius = 3.09
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 1.0
+radial_segments = 6
+rings = 1
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.941176, 0.12549, 0.105882, 1 )
+
+[node name="ExplosiveBarrel" type="RigidBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+collision_layer = 4
+collision_mask = 31
+mode = 1
+mass = 5.0
+gravity_scale = 2.03
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28598e-05, 0.00228272, 0.000107955 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00249002, 0.197285, 0.00627184 )
+shape = SubResource( 6 )
+
+[node name="KinematicBodyPushDetection" parent="." instance=ExtResource( 3 )]
+
+[node name="Explosive" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0326232, 0.145851, 0.0168014 )
+collision_layer = 8
+collision_mask = 13
+script = ExtResource( 1 )
+expl_damage = 35
+effect = ExtResource( 2 )
+
+[node name="BlastRadius" type="CollisionShape" parent="Explosive"]
+shape = SubResource( 7 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.211961, 0 )
+unit_db = 4.0
+unit_size = 6.0
+max_db = 0.0
+max_distance = 256.0
+out_of_range_mode = 1
+bus = "Effects"
+
+[node name="Model" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202549, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )

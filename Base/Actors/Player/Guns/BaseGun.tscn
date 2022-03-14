@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Base/Actors/Player/Guns/MuzzleFlash.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Base/Actors/Player/Guns/BaseGun.gd" type="Script" id=4]
+
+[node name="Gun" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="FiringTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="ReloadingTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MuzzleFlash" parent="." instance=ExtResource( 1 )]
+[connection signal="timeout" from="FiringTimer" to="." method="finish_firing"]
+[connection signal="timeout" from="ReloadingTimer" to="." method="finish_reload"]
+
+[editable path="MuzzleFlash"]

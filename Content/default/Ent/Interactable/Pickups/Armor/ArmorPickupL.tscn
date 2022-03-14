@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/Pickups/ResourcePickup.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.312, 0.845, 0.092 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.709804, 0.776471, 0.243137, 1 )
+
+[node name="ArmorPickup" instance=ExtResource( 1 )]
+contents = {
+"r_armor": 100
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+transform = Transform( 0.681578, 0, -0.182628, 0, 0.705621, 0, 0.182628, 0, 0.681578, -0.323415, 0.473094, 0.274571 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="." index="3"]
+transform = Transform( 0.681578, 0, 0.182628, 0, 0.705621, 0, -0.182628, 0, 0.681578, -0.128038, 0.473094, 0.274571 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="." index="4"]
+transform = Transform( 0.681578, 0, -0.182628, 0, 0.705621, 0, 0.182628, 0, 0.681578, 0.108347, 0.473094, 0.0785106 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="." index="5"]
+transform = Transform( 0.681578, 0, 0.182628, 0, 0.705621, 0, -0.182628, 0, 0.681578, 0.303724, 0.473094, 0.0785106 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="." index="6"]
+transform = Transform( 0.681578, 0, -0.182628, 0, 0.705621, 0, 0.182628, 0, 0.681578, -0.221041, 0.473094, -0.198863 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="." index="7"]
+transform = Transform( 0.681578, 0, 0.182628, 0, 0.705621, 0, -0.182628, 0, 0.681578, -0.0256637, 0.473094, -0.198863 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

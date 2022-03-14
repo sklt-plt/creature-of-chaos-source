@@ -1,0 +1,12 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+flags_transparent = true
+flags_use_shadow_to_opacity = true
+flags_vertex_lighting = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+params_blend_mode = 1
+params_cull_mode = 1
+params_billboard_keep_scale = true
+albedo_color = Color( 0.917647, 0, 0, 1 )

@@ -1,0 +1,18 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+sun_latitude = 42.46
+sun_longitude = 16.74
+sun_energy = 1.52
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.501961, 0.423529, 0.423529, 1 )
+background_energy = 0.16
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 4.6
+fog_depth_curve = 2.92817
+auto_exposure_scale = 0.42
+auto_exposure_max_luma = 5.3
+auto_exposure_speed = 0.01

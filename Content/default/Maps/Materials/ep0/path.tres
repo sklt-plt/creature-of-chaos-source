@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+flags_world_triplanar = true
+albedo_color = Color( 0.654902, 0.654902, 0.654902, 1 )
+metallic_specular = 0.45
+roughness = 0.92
+normal_enabled = true
+normal_scale = -5.77
+uv1_scale = Vector3( 0.1, 0.1, 0.1 )
+uv1_triplanar = true

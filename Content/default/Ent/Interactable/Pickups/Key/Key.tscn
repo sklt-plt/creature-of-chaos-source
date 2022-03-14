@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Base/Ent/Interactable/Pickups/ResourcePickup.gd" type="Script" id=1]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Key/Models/key.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Key" type="Spatial"]
+script = ExtResource( 1 )
+contents = {
+"r_keys": 1
+}
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="key" parent="." instance=ExtResource( 2 )]
+transform = Transform( 2.35109, 0, 0, 0, 2.35109, 0, 0, 0, 2.35109, -0.225072, 0.759016, 0 )
+
+[connection signal="body_entered" from="Area" to="." method="on_body_entered"]

@@ -1,0 +1,154 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Content/default/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoShotgunPickup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Content/default/Actors/Enemies/Melee/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoPistolPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Content/default/Effects/HitParticlesGreenBlood.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Content/default/Actors/Enemies/Projectiles/projectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Content/default/Ent/Interactable/LockedDoor/LockedDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Content/default/Effects/ExplosionParticles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Content/default/Actors/Enemies/Boss/DroneBProjectile2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Content/default/Actors/Enemies/Projectiles/enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Content/default/Effects/FireworksBlueBoss.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Content/default/Effects/HitParticlesBlood.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Content/default/Effects/HitParticlesDust.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Content/default/Ent/Interactable/LevelExit/LevelExit.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Content/default/Actors/Enemies/Boss/DroneAProjectile2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Content/default/Actors/Player/Guns/DummyModels/DoubleBarrel/double_barrel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Content/default/Actors/Player/Guns/DummyModels/Revolver/dummyRevolver.glb" type="PackedScene" id=18]
+[ext_resource path="res://Content/default/Effects/HitParticlesFoliage.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Content/default/Ent/Interactable/LevelExit/FakeExit.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/Boomerang.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Content/default/Ent/Static/LevelEntrance/LevelEntrance.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Key/Key.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Content/default/Ent/Interactable/Powerups/HealthPowerup.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Content/default/Ent/Interactable/Powerups/ShotgunPowerup.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Content/default/Ent/Interactable/Powerups/ArmorPowerup.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Content/default/Ent/Interactable/TreasureChest/TreasureChest.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Armor/ArmorPickupS.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Content/default/Ent/Interactable/Powerups/AmmoPowerup.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Health/HealthPickupS.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Base/Ent/ObjectCache.gd" type="Script" id=31]
+
+[node name="ObjectCache" type="Spatial"]
+transform = Transform( 0.0253669, 0, 0, 0, 0.0253669, 0, 0, 0, 0.0253669, 0, 0, 0 )
+script = ExtResource( 31 )
+
+[node name="DummyBoomerang" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27022, 0, -86.1332 )
+script = null
+
+[node name="Boomerang" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82291, 2.29085, -86.1332 )
+script = null
+
+[node name="Missile" parent="." instance=ExtResource( 16 )]
+transform = Transform( 0.0393819, 0, 0.999224, 0, 1, 0, -0.999224, 0, 0.0393819, 6.98502, 2.83862, -86.1332 )
+script = null
+
+[node name="SpawnerProjectile" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43319, -2.95889, -86.1332 )
+script = null
+
+[node name="DummyMelee" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.930488, 0, 0, 0, 0.930488, 0, 0, 0, 0.930488, -6.05774, -5.98876, -86.1332 )
+script = null
+
+[node name="DummyProjectile" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1626, -5.59803, -86.1332 )
+script = null
+
+[node name="Missile2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39261, -4.808, -86.1332 )
+script = null
+
+[node name="double_barrel_no_hands" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.101968, 0, 2.05983, 0, 2.06235, 0, -2.05983, 0, -0.101968, 2.78413, 1.1993, -86.1332 )
+
+[node name="dummyRevolver" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1.18043, 0, 8.39389, 0, 8.47649, 0, -8.39389, 0, 1.18043, 0, 0, -86.1332 )
+
+[node name="Particles" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.4507, -8.02788, -86.1332 )
+emitting = false
+
+[node name="Fireworks" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68071, -12.9515, -86.1332 )
+script = null
+
+[node name="HitParticlesBlood" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77029, -10.6017, -86.1332 )
+script = null
+
+[node name="HitParticlesDust" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2324, -10.6859, -86.1332 )
+script = null
+
+[node name="HitParticlesFoliage" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9494, -19.6609, -86.1332 )
+script = null
+
+[node name="HitParticlesBlood2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29075, -22.1417, -86.1332 )
+script = null
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 3.94731, -23.7253, -86.1332 )
+script = null
+
+[node name="LevelExit" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8034, -19.0183, -86.1332 )
+script = null
+
+[node name="LevelExit2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4027, -18.7504, -86.1332 )
+script = null
+
+[node name="LockedDoor" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4889, -18.8615, -86.1332 )
+script = null
+
+[node name="AmmoPistolPickup" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.402, -22.7775, -86.1283 )
+script = null
+
+[node name="ammo_shotgun_pickup" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3026, -22.5835, -86.1283 )
+script = null
+
+[node name="ArmorPickup" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.394, -22.2603, -86.1283 )
+script = null
+
+[node name="HealthPickup" parent="." instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2548, -22.1021, -86.1283 )
+script = null
+
+[node name="Key" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0258, -22.4525, -86.1332 )
+script = null
+
+[node name="AmmoPowerup" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1407, -1.81503, -86.1332 )
+script = null
+
+[node name="ArmorPowerup" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.76845, -1.8199, -86.1332 )
+script = null
+
+[node name="HealthPowerup" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2207, -1.97492, -86.1332 )
+script = null
+
+[node name="ShotgunPowerup" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0011, -4.42505, -86.1332 )
+script = null
+
+[node name="TreasureChest" parent="." instance=ExtResource( 27 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.62283, 1.28453, -86.1332 )
+script = null
+
+[node name="level_entrance" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9816, -15.5682, -86.1332 )
