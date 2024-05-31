@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Base/Ent/Interactable/TreasureChest/HitTrig.gd" type="Script" id=1]
+[ext_resource path="res://Base/Effects/RigidbodyLaunchAndDissapearEffect.gd" type="Script" id=2]
 [ext_resource path="res://Base/Ent/Interactable/TreasureChest/TreasureChest.gd" type="Script" id=5]
 
 [sub_resource type="CylinderMesh" id=1]
@@ -9,8 +10,8 @@ height = 1.486
 radial_segments = 12
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.7
 height = 0.85
+radius = 0.7
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.340082, 0.191676, 0.254239 )
@@ -26,8 +27,8 @@ flags_transparent = true
 albedo_color = Color( 0.270588, 0.886275, 0.0745098, 1 )
 
 [sub_resource type="CylinderShape" id=6]
-radius = 1.50633
 height = 1.92455
+radius = 1.50633
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.387167, 0.365148, 0.358153 )
@@ -46,7 +47,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100268, 0 )
 [node name="Pedestal" type="MeshInstance" parent="Base"]
 transform = Transform( 0.558015, 0, 0, 0, 0.558015, 0, 0, 0, 0.558015, -0.00269747, 0.265461, 0 )
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Base/Pedestal"]
 transform = Transform( 1.79207, 0, 0, 0, 1.79207, 0, 0, 0, 1.79207, 0.00483404, -0.740371, 0 )
@@ -69,13 +69,13 @@ shape = SubResource( 3 )
 [node name="base" type="MeshInstance" parent="Base/model"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.201994, -0.00385594 )
 mesh = SubResource( 8 )
-material/0 = null
 
 [node name="Lid" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09442, 0 )
 collision_layer = 524291
 collision_mask = 524291
 mode = 1
+script = ExtResource( 2 )
 
 [node name="model" type="Spatial" parent="Lid"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.494589, 0 )
@@ -106,6 +106,10 @@ script = ExtResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="HitTrig"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642567, 0 )
 shape = SubResource( 7 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.73701, 0 )
+light_color = Color( 0.996078, 1, 0.313726, 1 )
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
 [connection signal="body_exited" from="Trigger" to="." method="_on_Trigger_body_exited"]

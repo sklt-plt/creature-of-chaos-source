@@ -1,0 +1,487 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Base/Ent/Static/FurnitureElements.gd" type="Script" id=1]
+[ext_resource path="res://Base/Ent/Static/FurnitureObject.gd" type="Script" id=2]
+[ext_resource path="res://Base/Ent/Misc/LadderVolume.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Content/default/Ent/Interactable/TreasureChest/TreasureChest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Content/default/Actors/Enemies/Sniper/Sniper.tscn" type="PackedScene" id=5]
+
+[sub_resource type="PlaneMesh" id=5]
+size = Vector2( 11, 11 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.843137, 0.792157, 0.466667, 1 )
+roughness = 0.4
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.678431, 0.0392157, 0.0392157, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 7 )
+size = Vector3( 5, 2, 5 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 2.4799, 0.493081, 0.130945 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.372549, 0.678431, 0.0392157, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 10 )
+size = Vector3( 8, 2, 5 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 3.99907, 1, 2.48706 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.0392157, 0.647059, 0.678431, 1 )
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 13 )
+size = Vector3( 3, 2, 5 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 1.52281, 1, 2.48706 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.462745, 0.0392157, 0.678431, 1 )
+
+[sub_resource type="CubeMesh" id=19]
+material = SubResource( 18 )
+size = Vector3( 3, 2, 5 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.0392157, 0.364706, 0.678431, 1 )
+
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 16 )
+size = Vector3( 7, 2, 3 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 3.40127, 1, 1.48397 )
+
+[sub_resource type="PlaneMesh" id=20]
+size = Vector2( 8, 8 )
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 2.45711, 1.02597, 2.43834 )
+
+[sub_resource type="CubeMesh" id=28]
+size = Vector3( 5.05, 0.364, 5.05 )
+
+[sub_resource type="CubeMesh" id=29]
+size = Vector3( 5.05, 1.457, 2.881 )
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_color = Color( 0.678431, 0.533333, 0.0392157, 1 )
+
+[sub_resource type="CubeMesh" id=24]
+material = SubResource( 23 )
+size = Vector3( 5, 2, 5 )
+
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 2.46193, 0.970318, 2.5544 )
+
+[sub_resource type="CubeMesh" id=21]
+size = Vector3( 0.237, 4, 1.107 )
+
+[sub_resource type="CubeMesh" id=25]
+material = SubResource( 23 )
+size = Vector3( 5, 0.219, 0.214 )
+
+[sub_resource type="CubeMesh" id=26]
+material = SubResource( 23 )
+size = Vector3( 1.901, 0.219, 0.214 )
+
+[sub_resource type="BoxShape" id=27]
+extents = Vector3( 0.964826, 0.493081, 0.130945 )
+
+[sub_resource type="BoxShape" id=32]
+extents = Vector3( 2.4799, 1.01933, 2.51329 )
+
+[node name="AllBuildings" type="Spatial"]
+
+[node name="ExampleBuilding" type="Spatial" parent="."]
+visible = false
+script = ExtResource( 2 )
+size = Vector3( 11, 0, 11 )
+
+[node name="ground" type="MeshInstance" parent="ExampleBuilding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -5.5 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 4 )
+
+[node name="FurnitureElements-base" type="Spatial" parent="ExampleBuilding"]
+script = ExtResource( 1 )
+
+[node name="VariantA" type="MeshInstance" parent="ExampleBuilding/FurnitureElements-base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4 )
+mesh = SubResource( 6 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleBuilding/FurnitureElements-base/VariantA"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleBuilding/FurnitureElements-base/VariantA/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="VariantB" type="MeshInstance" parent="ExampleBuilding/FurnitureElements-base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 1, -4 )
+mesh = SubResource( 9 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleBuilding/FurnitureElements-base/VariantB"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleBuilding/FurnitureElements-base/VariantB/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="FurnitureElements-first-floor" type="Spatial" parent="ExampleBuilding"]
+script = ExtResource( 1 )
+
+[node name="Deep-VariantA" type="Spatial" parent="ExampleBuilding/FurnitureElements-first-floor"]
+script = ExtResource( 1 )
+
+[node name="VariantAA" type="MeshInstance" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -4 )
+mesh = SubResource( 12 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA/VariantAA"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA/VariantAA/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="VariantAB" type="MeshInstance" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -4 )
+mesh = SubResource( 19 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA/VariantAB"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleBuilding/FurnitureElements-first-floor/Deep-VariantA/VariantAB/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="VariantB" type="MeshInstance" parent="ExampleBuilding/FurnitureElements-first-floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 3, -4 )
+mesh = SubResource( 15 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleBuilding/FurnitureElements-first-floor/VariantB"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleBuilding/FurnitureElements-first-floor/VariantB/StaticBody"]
+shape = SubResource( 17 )
+
+[node name="ExampleSniperTower" type="Spatial" parent="."]
+script = ExtResource( 2 )
+size = Vector3( 8, 0, 8 )
+
+[node name="ground" type="MeshInstance" parent="ExampleSniperTower"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 4 )
+
+[node name="Base" type="Spatial" parent="ExampleSniperTower"]
+
+[node name="model" type="MeshInstance" parent="ExampleSniperTower/Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4 )
+mesh = SubResource( 6 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleSniperTower/Base/model"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/Base/model/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="DetailVariants" type="Spatial" parent="ExampleSniperTower/Base"]
+script = ExtResource( 1 )
+
+[node name="VariantA" type="MeshInstance" parent="ExampleSniperTower/Base/DetailVariants"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98757, 0.756216, -3.97581 )
+mesh = SubResource( 28 )
+
+[node name="VariantB" type="MeshInstance" parent="ExampleSniperTower/Base/DetailVariants"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99189, 0.738783, -3.99345 )
+mesh = SubResource( 29 )
+skeleton = NodePath("../VariantA")
+
+[node name="FirstFloor" type="Spatial" parent="ExampleSniperTower"]
+script = ExtResource( 1 )
+
+[node name="Balcony" type="Spatial" parent="ExampleSniperTower/FirstFloor"]
+
+[node name="model" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -4 )
+mesh = SubResource( 24 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/model"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/model/StaticBody"]
+shape = SubResource( 31 )
+
+[node name="Ladder2" type="Spatial" parent="ExampleSniperTower/FirstFloor/Balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 2.9, -4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Ladder2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.823738, 0 )
+mesh = SubResource( 21 )
+
+[node name="LadderVolume" parent="ExampleSniperTower/FirstFloor/Balcony" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.26172, 1.02552, -3.9 )
+
+[node name="Railings" type="Spatial" parent="ExampleSniperTower/FirstFloor/Balcony"]
+
+[node name="railing" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.6512, -1.633 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing2" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.6512, -6.32468 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing2"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing2/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing2/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing3" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.42173, 4.6512, -3.94757 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing3"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing3/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing3/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing4" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.68631, 4.6512, -2.49201 )
+mesh = SubResource( 26 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing4"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing4/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.682784, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing4/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="railing5" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.68631, 4.6512, -5.48654 )
+mesh = SubResource( 26 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing5"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing5/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.682784, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/railing5/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.51475, 4.88118, -3.87325 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/Balcony/Railings/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="ObjectVariants-one-or-the-other" type="Spatial" parent="ExampleSniperTower/FirstFloor/Balcony"]
+script = ExtResource( 1 )
+
+[node name="Sniper" parent="ExampleSniperTower/FirstFloor/Balcony/ObjectVariants-one-or-the-other" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.20264, 4.07572, -4.15968 )
+
+[node name="TreasureChest" parent="ExampleSniperTower/FirstFloor/Balcony/ObjectVariants-one-or-the-other" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.50581, 4.72359, -3.46203 )
+
+[node name="AnotherFloor" type="Spatial" parent="ExampleSniperTower/FirstFloor"]
+
+[node name="model" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -4 )
+mesh = SubResource( 6 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/model"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/model/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Balcony" type="Spatial" parent="ExampleSniperTower/FirstFloor/AnotherFloor"]
+
+[node name="model" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, -4 )
+mesh = SubResource( 24 )
+skeleton = NodePath(".")
+
+[node name="StaticBody" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/model"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/model/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="Ladder2" type="Spatial" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 4.00997, -4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Ladder2"]
+mesh = SubResource( 21 )
+
+[node name="LadderVolume" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.31053, 3.12303, -3.9 )
+
+[node name="Railings" type="Spatial" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="railing" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.6512, -1.633 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing2" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.6512, -6.32468 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing2"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing2/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing2/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing3" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.42173, 4.6512, -3.94757 )
+mesh = SubResource( 25 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing3"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing3/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 8 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing3/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="railing4" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.68631, 4.6512, -2.49201 )
+mesh = SubResource( 26 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing4"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing4/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="railing5" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.68631, 4.6512, -5.48654 )
+mesh = SubResource( 26 )
+skeleton = NodePath(".")
+
+[node name="StaticBody-onlyPlayer" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing5"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/railing5/StaticBody-onlyPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387733, 0 )
+shape = SubResource( 27 )
+
+[node name="StaticBody-forEnemy" type="StaticBody" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.51475, 4.88118, -3.87325 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/Railings/StaticBody-forEnemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00945, 0 )
+shape = SubResource( 8 )
+
+[node name="ObjectVariants-one-or-the-other" type="Spatial" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony"]
+script = ExtResource( 1 )
+
+[node name="Sniper" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/ObjectVariants-one-or-the-other" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.20264, 6.07984, -4.15968 )
+
+[node name="TreasureChest" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Balcony/ObjectVariants-one-or-the-other" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.50581, 6.72771, -3.46203 )
+
+[node name="Ladder" type="Spatial" parent="ExampleSniperTower/FirstFloor/AnotherFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 2.9, -4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ExampleSniperTower/FirstFloor/AnotherFloor/Ladder"]
+mesh = SubResource( 21 )
+
+[editable path="ExampleSniperTower/FirstFloor/Balcony/LadderVolume"]

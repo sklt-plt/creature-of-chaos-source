@@ -40,10 +40,17 @@ color_ramp = SubResource( 5 )
 material = ExtResource( 2 )
 
 [node name="Missile" instance=ExtResource( 1 )]
-speed = 6.0
 
 [node name="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource( 3 )
+unit_size = 2.0
+max_db = -1.0
+autoplay = true
+max_distance = 50.0
+out_of_range_mode = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Model" index="0"]
 transform = Transform( 0.227378, 0, 0, 0, 0.227378, 0, 0, 0, 0.227378, 0, 0, 0 )
@@ -59,11 +66,3 @@ local_coords = false
 draw_order = 2
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )
-
-[node name="AudioStreamPlayer3D" parent="." index="4"]
-stream = ExtResource( 3 )
-unit_size = 2.0
-max_db = -1.0
-autoplay = true
-max_distance = 50.0
-out_of_range_mode = 1

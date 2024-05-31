@@ -5,8 +5,8 @@
 [ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/boomerang_boomerang_spin.tres" type="Animation" id=3]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 0.274409
 height = 0.14479
+radius = 0.274409
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 0.048, 0.053, 0.44 )
@@ -33,12 +33,10 @@ transform = Transform( 17.3647, 74.7692, -64.094, 98.4808, -13.1837, 11.3014, 2.
 [node name="MeshInstance" type="MeshInstance" parent="Model/boomerang2"]
 transform = Transform( 1, -1.87251e-07, 4.15784e-08, -7.4601e-08, 0.84371, 0.536799, -3.48721e-08, -0.536799, 0.84371, -5.57368e-08, -0.111559, -0.185352 )
 mesh = SubResource( 2 )
-material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="Model/boomerang2"]
 transform = Transform( 1, -8.14097e-09, 1.71322e-08, -1.0361e-07, 0.928207, -0.372064, -6.87129e-08, 0.372064, 0.928207, 3.99786e-09, -0.0762209, 0.182796 )
 mesh = SubResource( 2 )
-material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
 anims/boomerang|boomerang_spin = ExtResource( 3 )

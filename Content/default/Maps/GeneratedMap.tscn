@@ -1,13 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=36 format=2]
 
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Health/HealthPickupM.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Base/Maps/exterior_environment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Armor/ArmorPickupS.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Base/Maps/Generators/MapGenerator.gd" type="Script" id=5]
-[ext_resource path="res://Base/Maps/Generators/PlayerStartingEquipment.gd" type="Script" id=9]
+[ext_resource path="res://Content/default/Actors/Enemies/Projectiles/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Health/HealthPickupS.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Content/default/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Base/Maps/Generators/Tools/PlayerStartingEquipment.gd" type="Script" id=9]
+[ext_resource path="res://Content/default/Actors/Enemies/Melee/enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/EntityGroupsGenerator.gd" type="Script" id=12]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/FurnitureGenerator.gd" type="Script" id=13]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/RoomsDataGenerator.gd" type="Script" id=15]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Armor/ArmorPickupM.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/FurnishedInteriorGenerator.gd" type="Script" id=17]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/FurnishedArenaGenerator.gd" type="Script" id=18]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/LinkDoorsGenerator.gd" type="Script" id=20]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/ArenaGenerator.gd" type="Script" id=21]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/RoomWallsGenerator.gd" type="Script" id=22]
+[ext_resource path="res://Base/Maps/Generators/Subsystem/RandomWalksInteriorGenerator.gd" type="Script" id=23]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Health/HealthPickupL.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Content/default/Ent/Static/LevelEntrance/LevelEntrance.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Content/default/Ent/Interactable/LevelExit/LevelExit.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Content/default/Maps/PrefabRooms/Pond.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Armor/ArmorPickupL.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Content/default/Ent/Interactable/TreasureChest/TreasureChest.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Content/default/Maps/PrefabRooms/Pillars.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Key/Key.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Content/default/Maps/PrefabRooms/UpDown.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Content/default/Maps/PrefabRooms/HollowHedge.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Content/default/Ent/Interactable/LockedDoor/LockedDoor.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Content/default/Ent/Interactable/HintBoard/HintBoard.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoCrossbowPickup.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoPistolPickup.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Content/default/Ent/Interactable/Pickups/Ammo/AmmoShotgunPickup.tscn" type="PackedScene" id=42]
 
 [node name="GeneratedMap" type="Spatial"]
 
 [node name="MapGenerator" type="Spatial" parent="."]
 script = ExtResource( 5 )
+gen_seed = "574055579"
+locked_doors = [ {
+"path": "/Ent/Interactable/LockedDoor/LockedDoor.tscn",
+"ref": ExtResource( 36 )
+} ]
 
 [node name="player_starting_equipment" type="Node" parent="."]
 script = ExtResource( 9 )
@@ -17,3 +54,158 @@ starting_resources = {
 }
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 2 )]
+
+[node name="rooms_data_generator" type="Node" parent="."]
+script = ExtResource( 15 )
+_enemy_difficulty = 2
+_enemy_difficulty_variation = 1
+_prefab_rooms = [ {
+"path": "/Maps/PrefabRooms/UpDown.tscn",
+"ref": ExtResource( 32 )
+}, {
+"path": "/Maps/PrefabRooms/Pillars.tscn",
+"ref": ExtResource( 30 )
+}, {
+"path": "/Maps/PrefabRooms/Pond.tscn",
+"ref": ExtResource( 27 )
+}, {
+"path": "/Maps/PrefabRooms/HollowHedge.tscn",
+"ref": ExtResource( 33 )
+} ]
+
+[node name="walls_generator" type="Node" parent="."]
+script = ExtResource( 22 )
+
+[node name="random_walks_interior_generator" type="Node" parent="."]
+script = ExtResource( 23 )
+
+[node name="side_furniture_generator" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="path_furniture_generator" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="furnished_interior_generator" type="Node" parent="."]
+script = ExtResource( 17 )
+
+[node name="furnished_arena_generator" type="Node" parent="."]
+script = ExtResource( 18 )
+
+[node name="arena_interior_generator" type="Node" parent="."]
+script = ExtResource( 21 )
+
+[node name="link_door_generator" type="Node" parent="."]
+script = ExtResource( 20 )
+
+[node name="entity_groups_generator" type="Node" parent="."]
+script = ExtResource( 12 )
+stat_objects = {
+"level_entrance": {
+"path": "/Ent/Static/LevelEntrance/LevelEntrance.tscn",
+"ref": ExtResource( 25 )
+}
+}
+int_objects = {
+"explosive_barrel": {
+"path": "/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.tscn",
+"ref": ExtResource( 8 )
+},
+"hint_board": {
+"path": "/Ent/Interactable/HintBoard/HintBoard.tscn",
+"ref": ExtResource( 37 )
+},
+"key": {
+"path": "/Ent/Interactable/Pickups/Key/Key.tscn",
+"ref": ExtResource( 31 )
+},
+"level_gate": {
+"path": "/Ent/Interactable/LevelExit/LevelExit.tscn",
+"ref": ExtResource( 26 )
+},
+"treasure_chest": {
+"path": "/Ent/Interactable/TreasureChest/TreasureChest.tscn",
+"ref": ExtResource( 29 )
+}
+}
+monster_paths_and_costs = [ {
+"is_turret": false,
+"path": "/Actors/Enemies/Projectiles/enemy.tscn",
+"ref": ExtResource( 6 ),
+"spawn_cost": 1.0,
+"spawn_max_group": 3
+}, {
+"is_turret": false,
+"path": "/Actors/Enemies/Melee/enemy.tscn",
+"ref": ExtResource( 11 ),
+"spawn_cost": 2.5,
+"spawn_max_group": 2
+}, {
+"is_turret": false,
+"path": "/Actors/Enemies/Boomerangs/enemy.tscn",
+"ref": ExtResource( 3 ),
+"spawn_cost": 1.5,
+"spawn_max_group": 3
+} ]
+ammo_pickups = {
+"r_crossbow_ammo": [ {
+"contents": {
+"r_crossbow_ammo": 3
+},
+"path": "/Ent/Interactable/Pickups/Ammo/AmmoCrossbowPickup.tscn",
+"ref": ExtResource( 40 )
+} ],
+"r_pistol_ammo": [ {
+"contents": {
+"r_pistol_ammo": 5
+},
+"path": "/Ent/Interactable/Pickups/Ammo/AmmoPistolPickup.tscn",
+"ref": ExtResource( 41 )
+} ],
+"r_shotgun_ammo": [ {
+"contents": {
+"r_shotgun_ammo": 3
+},
+"path": "/Ent/Interactable/Pickups/Ammo/AmmoShotgunPickup.tscn",
+"ref": ExtResource( 42 )
+} ]
+}
+health_pickups = {
+"r_armor": [ {
+"contents": {
+"r_armor": 100
+},
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupL.tscn",
+"ref": ExtResource( 28 )
+}, {
+"contents": {
+"r_armor": 30
+},
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupM.tscn",
+"ref": ExtResource( 16 )
+}, {
+"contents": {
+"r_armor": 1
+},
+"path": "/Ent/Interactable/Pickups/Armor/ArmorPickupS.tscn",
+"ref": ExtResource( 4 )
+} ],
+"r_health": [ {
+"contents": {
+"r_health": 50
+},
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupL.tscn",
+"ref": ExtResource( 24 )
+}, {
+"contents": {
+"r_health": 25
+},
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupM.tscn",
+"ref": ExtResource( 1 )
+}, {
+"contents": {
+"r_health": 1
+},
+"path": "/Ent/Interactable/Pickups/Health/HealthPickupS.tscn",
+"ref": ExtResource( 7 )
+} ]
+}

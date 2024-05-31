@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "ArenaGenerator",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/ArenaGenerator.gd"
+"path": "res://Base/Maps/Generators/Subsystem/ArenaGenerator.gd"
 }, {
 "base": "KinematicBody",
 "class": "AutomaticDoor",
@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Base/Ent/Hazards/Boomerang.gd"
 }, {
+"base": "Spatial",
+"class": "BossSpawn",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/BossSpawn.gd"
+}, {
 "base": "Path",
 "class": "Drone",
 "language": "GDScript",
@@ -50,19 +55,74 @@ _global_script_classes=[ {
 "path": "res://Base/Effects/Effects.gd"
 }, {
 "base": "Node",
+"class": "EnemyAI",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/EnemyAI.gd"
+}, {
+"base": "Node",
 "class": "EntityGroupsGenerator",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/EntityGroupsGenerator.gd"
+"path": "res://Base/Maps/Generators/Subsystem/EntityGroupsGenerator.gd"
 }, {
 "base": "Area",
 "class": "Explosive",
 "language": "GDScript",
 "path": "res://Base/Ent/Hazards/Explosive.gd"
 }, {
+"base": "RigidBody",
+"class": "ExplosiveBarrel",
+"language": "GDScript",
+"path": "res://Base/Ent/Interactable/ExplosiveBarrel/ExplosiveBarrel.gd"
+}, {
+"base": "BaseProjectile",
+"class": "ExplosiveProjectile",
+"language": "GDScript",
+"path": "res://Base/Ent/Hazards/ExplosiveProjectile.gd"
+}, {
+"base": "Spatial",
+"class": "FakeEnemy",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/FakeEnemy.gd"
+}, {
+"base": "Spatial",
+"class": "FakeExit",
+"language": "GDScript",
+"path": "res://Base/Ent/Interactable/LevelExit/FakeExit.gd"
+}, {
 "base": "Node",
 "class": "FileHelper",
 "language": "GDScript",
 "path": "res://Base/System/FileHelper.gd"
+}, {
+"base": "FurnishedInteriorGenerator",
+"class": "FurnishedArenaGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/FurnishedArenaGenerator.gd"
+}, {
+"base": "RandomWalksInteriorGenerator",
+"class": "FurnishedInteriorGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/FurnishedInteriorGenerator.gd"
+}, {
+"base": "Spatial",
+"class": "FurnitureElements",
+"language": "GDScript",
+"path": "res://Base/Ent/Static/FurnitureElements.gd"
+}, {
+"base": "Spatial",
+"class": "FurnitureEntitySpawn",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/Data/FuntitureEntitySpawn.gd"
+}, {
+"base": "Node",
+"class": "FurnitureGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/FurnitureGenerator.gd"
+}, {
+"base": "Spatial",
+"class": "FurnitureObject",
+"language": "GDScript",
+"path": "res://Base/Ent/Static/FurnitureObject.gd"
 }, {
 "base": "PauseScreen",
 "class": "GameOver",
@@ -72,27 +132,32 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "GeneratedRoom",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/GeneratedRoom.gd"
+"path": "res://Base/Maps/Generators/Subsystem/Data/GeneratedRoom.gd"
 }, {
 "base": "Node",
 "class": "GeneratorConstants",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/_GeneratorConstants.gd"
+"path": "res://Base/Maps/Generators/Subsystem/Helpers/_GeneratorConstants.gd"
 }, {
 "base": "Node",
 "class": "GeneratorOverrides",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/GeneratorOverrides.gd"
+"path": "res://Base/Maps/Generators/Tools/GeneratorOverrides.gd"
 }, {
 "base": "Spatial",
 "class": "GridMapHelper",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/GridMapHelper.gd"
+"path": "res://Base/Maps/Generators/Subsystem/Helpers/GridMapHelper.gd"
 }, {
 "base": "Node",
 "class": "GunController",
 "language": "GDScript",
 "path": "res://Base/Actors/Player/Guns/GunController.gd"
+}, {
+"base": "Spatial",
+"class": "HintBoard",
+"language": "GDScript",
+"path": "res://Base/Ent/Interactable/HintBoard/HintBoard.gd"
 }, {
 "base": "BaseProjectile",
 "class": "HitProjectile",
@@ -135,9 +200,24 @@ _global_script_classes=[ {
 "path": "res://Base/Actors/Enemies/KinematicEnemy.gd"
 }, {
 "base": "Interactable",
-"class": "LevelEntrance",
+"class": "LevelExit",
 "language": "GDScript",
-"path": "res://Base/Ent/Interactable/LevelEntrance/LevelEntrance.gd"
+"path": "res://Base/Ent/Interactable/LevelExit/LevelExit.gd"
+}, {
+"base": "Spatial",
+"class": "LinkDoor",
+"language": "GDScript",
+"path": "res://Base/Effects/LinkDoor.gd"
+}, {
+"base": "Node",
+"class": "LinkDoorsGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/LinkDoorsGenerator.gd"
+}, {
+"base": "Node",
+"class": "LinkPortalGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Misc/LinkPortalGenerator.gd"
 }, {
 "base": "Interactable",
 "class": "LockedDoor",
@@ -153,6 +233,11 @@ _global_script_classes=[ {
 "class": "MapGenerator",
 "language": "GDScript",
 "path": "res://Base/Maps/Generators/MapGenerator.gd"
+}, {
+"base": "Area",
+"class": "MeleeArea",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/MeleeArea.gd"
 }, {
 "base": "Node",
 "class": "MusicController",
@@ -185,44 +270,79 @@ _global_script_classes=[ {
 "path": "res://Base/Actors/Player/PlayerMovement.gd"
 }, {
 "base": "Node",
+"class": "PlayerResourceCosts",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/PlayerResourceCosts.gd"
+}, {
+"base": "Node",
 "class": "PlayerStartingEquipment",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/PlayerStartingEquipment.gd"
+"path": "res://Base/Maps/Generators/Tools/PlayerStartingEquipment.gd"
 }, {
 "base": "Node",
 "class": "PlayerStats",
 "language": "GDScript",
 "path": "res://Base/Actors/Player/PlayerStats.gd"
 }, {
+"base": "MeshInstance",
+"class": "PortalWindow",
+"language": "GDScript",
+"path": "res://Base/Effects/Misc/PortalWindow.gd"
+}, {
+"base": "Node",
+"class": "PrefabHelper",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Subsystem/Helpers/PrefabHelper.gd"
+}, {
 "base": "Node",
 "class": "ProjectileSpawnHelper",
 "language": "GDScript",
 "path": "res://Base/Ent/Hazards/ProjectileSpawnHelper.gd"
 }, {
+"base": "RigidBody",
+"class": "RBLaunchEffect",
+"language": "GDScript",
+"path": "res://Base/Effects/RigidbodyLaunchAndDissapearEffect.gd"
+}, {
 "base": "Node",
 "class": "RandomWalksInteriorGenerator",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/RandomWalksInteriorGenerator.gd"
+"path": "res://Base/Maps/Generators/Subsystem/RandomWalksInteriorGenerator.gd"
 }, {
 "base": "Spatial",
 "class": "ResourcePickup",
 "language": "GDScript",
 "path": "res://Base/Ent/Interactable/Pickups/ResourcePickup.gd"
 }, {
+"base": "RichTextEffect",
+"class": "RichTextEffectBlink",
+"language": "GDScript",
+"path": "res://Base/UI/TextEffectBlink.gd"
+}, {
 "base": "Spatial",
 "class": "RoomGeometry",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/RoomGeometry.gd"
+"path": "res://Base/Maps/Generators/Subsystem/Data/RoomGeometry.gd"
 }, {
 "base": "Node",
 "class": "RoomWallsGenerator",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/RoomWallsGenerator.gd"
+"path": "res://Base/Maps/Generators/Subsystem/RoomWallsGenerator.gd"
 }, {
 "base": "Node",
 "class": "RoomsDataGenerator",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/RoomsDataGenerator.gd"
+"path": "res://Base/Maps/Generators/Subsystem/RoomsDataGenerator.gd"
+}, {
+"base": "StaticBody",
+"class": "StaticEnemy",
+"language": "GDScript",
+"path": "res://Base/Actors/Enemies/StaticEnemy.gd"
+}, {
+"base": "Node",
+"class": "SubdivFloorGenerator",
+"language": "GDScript",
+"path": "res://Base/Maps/Generators/Misc/SubdivFloorGenerator.gd"
 }, {
 "base": "Node",
 "class": "SurfaceHitEffectType",
@@ -232,7 +352,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "TilesOutlineHelper",
 "language": "GDScript",
-"path": "res://Base/Maps/Generators/TilesOutlineHelper.gd"
+"path": "res://Base/Maps/Generators/Subsystem/Helpers/TilesOutlineHelper.gd"
 }, {
 "base": "Node",
 "class": "TimeHelper",
@@ -251,17 +371,30 @@ _global_script_class_icons={
 "BasePowerup": "",
 "BaseProjectile": "",
 "Boomerang": "",
+"BossSpawn": "",
 "Drone": "",
 "Effects": "",
+"EnemyAI": "",
 "EntityGroupsGenerator": "",
 "Explosive": "",
+"ExplosiveBarrel": "",
+"ExplosiveProjectile": "",
+"FakeEnemy": "",
+"FakeExit": "",
 "FileHelper": "",
+"FurnishedArenaGenerator": "",
+"FurnishedInteriorGenerator": "",
+"FurnitureElements": "",
+"FurnitureEntitySpawn": "",
+"FurnitureGenerator": "",
+"FurnitureObject": "",
 "GameOver": "",
 "GeneratedRoom": "",
 "GeneratorConstants": "",
 "GeneratorOverrides": "",
 "GridMapHelper": "",
 "GunController": "",
+"HintBoard": "",
 "HitProjectile": "",
 "Hurtbox": "",
 "InWorldButton": "",
@@ -270,24 +403,35 @@ _global_script_class_icons={
 "Interactable": "",
 "KinematicActor": "",
 "KinematicEnemy": "",
-"LevelEntrance": "",
+"LevelExit": "",
+"LinkDoor": "",
+"LinkDoorsGenerator": "",
+"LinkPortalGenerator": "",
 "LockedDoor": "",
 "ManualPlayerSpawn": "",
 "MapGenerator": "",
+"MeleeArea": "",
 "MusicController": "",
 "MusicOverride": "",
 "PauseScreen": "",
 "PlayerAnimations": "",
 "PlayerInterface": "",
 "PlayerMovement": "",
+"PlayerResourceCosts": "",
 "PlayerStartingEquipment": "",
 "PlayerStats": "",
+"PortalWindow": "",
+"PrefabHelper": "",
 "ProjectileSpawnHelper": "",
+"RBLaunchEffect": "",
 "RandomWalksInteriorGenerator": "",
 "ResourcePickup": "",
+"RichTextEffectBlink": "",
 "RoomGeometry": "",
 "RoomWallsGenerator": "",
 "RoomsDataGenerator": "",
+"StaticEnemy": "",
+"SubdivFloorGenerator": "",
 "SurfaceHitEffectType": "",
 "TilesOutlineHelper": "",
 "TimeHelper": "",
@@ -308,6 +452,8 @@ default_bus_layout="res://Base/Audio/AudioBusLayout.tres"
 Globals="*res://Base/System/_Globals.gd"
 EpisodeManager="*res://Base/System/EpisodeManager.gd"
 AIManager="*res://Base/Actors/Enemies/AIManager.gd"
+AchievementHelper="*res://Base/System/AchievementHelper.tscn"
+Steam="*res://addons/steam_api/Steam.gd"
 
 [display]
 
@@ -391,6 +537,11 @@ Aim={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+"Quick Melee"={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 Interact={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
@@ -405,6 +556,16 @@ Interact={
 "Select Shotgun"={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":50,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+"Select Crossbow"={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":51,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+"Select Melee"={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":48,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 "Select Next"={
@@ -442,9 +603,44 @@ DBG_5={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777248,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+DBG_6={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777249,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+DBG_7={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777250,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+DBG_9={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777252,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 DBG_ENABLE={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":85,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":86,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+DBG_ENABLE2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+WheelUpProxy={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+WheelDownProxy={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+"Show Map"={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

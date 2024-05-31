@@ -1,14 +1,26 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/DummyBoomerangs.gd" type="Script" id=1]
+[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/boomerangenemy.gd" type="Script" id=1]
 [ext_resource path="res://Content/default/Actors/Enemies/Model/DummyEnemy.glb" type="PackedScene" id=2]
 [ext_resource path="res://Base/Actors/Enemies/KinematicEnemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Content/default/Actors/Enemies/Boomerangs/Boomerang.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Content/default/SFX/DummySfx.ogg" type="AudioStream" id=5]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends \"res://Base/Actors/Enemies/PlayerResourceCosts.gd\"
+tool
+
+func _init():
+	player_resource_costs = {
+		\"r_armor\": 2,
+		\"r_crossbow_ammo\": 2,
+		\"r_health\": 2,
+		\"r_pistol_ammo\": 2,
+		\"r_shotgun_ammo\": 1
+	}
+"
 
 [sub_resource type="CylinderShape" id=1]
-radius = 1.09174
 height = 3.85785
+radius = 1.09174
 
 [sub_resource type="CapsuleMesh" id=2]
 radial_segments = 4
@@ -20,30 +32,22 @@ params_specular_mode = 3
 [node name="DummyBoomerang" instance=ExtResource( 3 )]
 collision_layer = 4
 collision_mask = 63
-script = ExtResource( 1 )
-health = 17.0
-movement_speed = 5.0
-awake_movement = 1
-allow_chasing = true
-distance_to_melee = 4.0
-targeting_height_offset = 2.5
-projectile = ExtResource( 4 )
-audio_callouts = [ ExtResource( 5 ) ]
-audio_death = ExtResource( 5 )
-audio_attack = ExtResource( 5 )
 
-[node name="CollisionShape" parent="." index="0"]
+[node name="AI" parent="." index="0"]
+script = ExtResource( 1 )
+
+[node name="PlayerResourceCosts" parent="." index="1"]
+script = SubResource( 4 )
+
+[node name="CollisionShape" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9453, -0.0982471 )
 shape = SubResource( 1 )
 
-[node name="MissileSpawnCords" parent="." index="1"]
+[node name="MissileSpawnCords" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65646, -1.888 )
 
-[node name="AudioStreamPlayer3D" parent="." index="2"]
+[node name="AudioStreamPlayer3D" parent="." index="4"]
 unit_size = 4.0
-
-[node name="RangedAttackTelegraph" parent="." index="5"]
-wait_time = 1.26
 
 [node name="Model" parent="." index="7" instance=ExtResource( 2 )]
 
@@ -51,5 +55,8 @@ wait_time = 1.26
 transform = Transform( 0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, 0, 2.39496, 1.04687e-07 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
+
+[node name="RangedAttackTelegraph" parent="." index="8"]
+wait_time = 1.26
 
 [editable path="Model"]

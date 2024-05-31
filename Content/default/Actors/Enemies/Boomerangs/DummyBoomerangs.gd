@@ -1,4 +1,4 @@
-extends KinematicEnemy
+extends EnemyAI
 
 func _ready():
 	ANIM_IDLE = "DummyIdle"
