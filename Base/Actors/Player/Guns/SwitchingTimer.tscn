@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="SwitchingTimer" type="Timer"]
-wait_time = 0.1
-one_shot = true
